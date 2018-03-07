@@ -37,10 +37,8 @@ public class Client implements Serializable {
     private String mail;
     @Embedded
     private ProfilAstrologique profilAstrologique;
-    private Long idVoyance;
 
-    public Client(Long idClient, String nom, String prenom, String civilite, Date dateNaissance, AdressePostale adressePostale, String telephone, String mail, ProfilAstrologique profilAstrologique, Long idVoyance) {
-        this.idClient = idClient;
+    public Client(String nom, String prenom, String civilite, Date dateNaissance, AdressePostale adressePostale, String telephone, String mail, ProfilAstrologique profilAstrologique) {
         this.nom = nom;
         this.prenom = prenom;
         this.civilite = civilite;
@@ -49,7 +47,6 @@ public class Client implements Serializable {
         this.telephone = telephone;
         this.mail = mail;
         this.profilAstrologique = profilAstrologique;
-        this.idVoyance = idVoyance;
     }
         
     public Long getIdClient() {
@@ -118,10 +115,6 @@ public class Client implements Serializable {
         return profilAstrologique;
     }
 
-    public Long getIdVoyance() {
-        return idVoyance;
-    }
-
     public void setIdClient(Long idClient) {
         this.idClient = idClient;
     }
@@ -158,13 +151,9 @@ public class Client implements Serializable {
         this.profilAstrologique = profilAstrologique;
     }
 
-    public void setIdVoyance(Long idVoyance) {
-        this.idVoyance = idVoyance;
-    }
-
     @Override
     public String toString() {
-        return "Client{" + "idClient=" + idClient + ", nom=" + nom + ", prenom=" + prenom + ", civilite=" + civilite + ", dateNaissance=" + dateNaissance + ", adressePostale=" + adressePostale + ", telephone=" + telephone + ", mail=" + mail + ", profilAstrologique=" + profilAstrologique + ", idVoyance=" + idVoyance + '}';
+        return "Client{" + "idClient=" + idClient + ", nom=" + nom + ", prenom=" + prenom + ", civilite=" + civilite + ", dateNaissance=" + dateNaissance + ", adressePostale=" + adressePostale + ", telephone=" + telephone + ", mail=" + mail + ", profilAstrologique=" + profilAstrologique + '}';
     }
     
 }
