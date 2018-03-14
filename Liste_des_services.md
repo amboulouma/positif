@@ -4,13 +4,13 @@
 ```
 static void inscriptionClient(Client client);
 static boolean connexionClient(String mail);
-static List<Medium> demanderVoyance();
-static void choisirMedium(Medium medium);
-static List<Voyance> genererHistorique(Client client);
+static List<Medium> genererMediums();
+static Voyance creerVoyance(Medium medium, Client client);
+static List<Voyance> genererHistoriqueVoyances(Client client);
 ```
 ## Services Employes
 ```
-static Client visualiserProfilClient(Long idClient);
+static Client trouverClient(Long idClient);
 static void demarerConversation(Long idClient, Long idEmploye, Long idMedium);
 static void cloturerConversationAvecCommentaire(String commentaire);
 static void cloturerConversationSansCommentaire();
