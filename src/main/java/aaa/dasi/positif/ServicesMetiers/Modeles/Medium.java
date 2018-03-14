@@ -62,11 +62,6 @@ public class Medium implements Serializable {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "aaa.dasi.positif.ServicesMetiers.Modeles.Medium[ idMedium=" + idMedium + " ]";
-    }
-
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
@@ -90,4 +85,10 @@ public class Medium implements Serializable {
     public void setBio(String bio) {
         this.bio = bio;
     }
+
+    @Override
+    public String toString() {
+        return "Medium{" + "idMedium=" + idMedium + ", nom=" + nom + ", bio=" + bio + '}';
+    }
+    
 }

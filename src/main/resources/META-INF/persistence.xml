@@ -4,6 +4,9 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>aaa.dasi.positif.ServicesMetiers.Modeles.Client</class>
     <class>aaa.dasi.positif.ServicesMetiers.Modeles.Medium</class>
+    <class>aaa.dasi.positif.ServicesMetiers.Modeles.Voyant</class>
+    <class>aaa.dasi.positif.ServicesMetiers.Modeles.Tarologue</class>
+    <class>aaa.dasi.positif.ServicesMetiers.Modeles.Astrologue</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/positif"/>
       <property name="javax.persistence.jdbc.user" value="aaa"/>
