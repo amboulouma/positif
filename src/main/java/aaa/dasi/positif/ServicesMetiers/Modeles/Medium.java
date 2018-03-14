@@ -6,10 +6,13 @@
 package aaa.dasi.positif.ServicesMetiers.Modeles;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 /**
  *
@@ -24,6 +27,8 @@ public class Medium implements Serializable {
     private Long idMedium;
     private String nom;
     private String bio;
+    @ManyToMany
+    private List<Employe> employe;
 
     public Medium(String nom, String bio) {
         this.nom = nom;
@@ -32,46 +37,32 @@ public class Medium implements Serializable {
 
     public Medium() {
     }
-    
 
-    public Long getIdMedium() {
-        return idMedium;
-    }
-
-    public void setId(Long id) {
+    public Medium(Long idMedium, String nom, String bio, List<Employe> employe) {
         this.idMedium = idMedium;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (idMedium != null ? idMedium.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the idMedium fields are not set
-        if (!(object instanceof Medium)) {
-            return false;
-        }
-        Medium other = (Medium) object;
-        if ((this.idMedium == null && other.idMedium != null) || (this.idMedium != null && !this.idMedium.equals(other.idMedium))) {
-            return false;
-        }
-        return true;
+        this.nom = nom;
+        this.bio = bio;
+        this.employe = employe;
     }
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
-    
+
+    public Long getIdMedium() {
+        return idMedium;
+    }
+
     public String getNom() {
         return nom;
     }
 
     public String getBio() {
         return bio;
+    }
+
+    public List<Employe> getEmploye() {
+        return employe;
     }
 
     public void setIdMedium(Long idMedium) {
@@ -86,9 +77,52 @@ public class Medium implements Serializable {
         this.bio = bio;
     }
 
+    public void setEmploye(List<Employe> employe) {
+        this.employe = employe;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 97 * hash + Objects.hashCode(this.idMedium);
+        hash = 97 * hash + Objects.hashCode(this.nom);
+        hash = 97 * hash + Objects.hashCode(this.bio);
+        hash = 97 * hash + Objects.hashCode(this.employe);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Medium other = (Medium) obj;
+        if (!Objects.equals(this.nom, other.nom)) {
+            return false;
+        }
+        if (!Objects.equals(this.bio, other.bio)) {
+            return false;
+        }
+        if (!Objects.equals(this.idMedium, other.idMedium)) {
+            return false;
+        }
+        if (!Objects.equals(this.employe, other.employe)) {
+            return false;
+        }
+        return true;
+    }
+
     @Override
     public String toString() {
-        return "Medium{" + "idMedium=" + idMedium + ", nom=" + nom + ", bio=" + bio + '}';
+        return "Medium{" + "idMedium=" + idMedium + ", nom=" + nom + ", bio=" + bio + ", employe=" + employe + '}';
     }
+    
+    
     
 }

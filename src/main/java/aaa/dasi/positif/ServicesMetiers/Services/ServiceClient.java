@@ -18,12 +18,10 @@ import javax.persistence.EntityManager;
  * @author aelomarial
  */
 public class ServiceClient{
-    public static boolean inscriptionClient(Client client){
-        boolean resultat = false;
+    public static void inscriptionClient(Client client){
         JpaUtil.creerEntityManager();
         JpaUtil.ouvrirTransaction();
         ClientDAO.persist(client);
         JpaUtil.validerTransaction();
-        return resultat;
     }
 }
