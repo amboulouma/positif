@@ -24,4 +24,9 @@ public class ServiceClient{
         ClientDAO.persist(client);
         JpaUtil.validerTransaction();
     }
+    
+    public static void connexionClient(String mail){
+    
+    
+    }
 }

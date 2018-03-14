@@ -9,6 +9,7 @@ import aaa.dasi.positif.ServicesMetiers.Modeles.Client;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 /**
  *
@@ -20,5 +21,23 @@ public class ClientDAO extends JpaUtil{
         EntityManager em = JpaUtil.obtenirEntityManager();
         em.persist(client);
     }
-    
+ 
+    /*
+    retourne vrai si l'adresse mail existe dans bd
+    => client connecté
+    */
+    public static boolean trouverMail(String paramMail){
+        boolean res = true;
+        EntityManager em = JpaUtil.obtenirEntityManager();
+        
+        Query query = em.createQuery("select * from Client where mail= :mail");
+        query.setParameter("mail", paramMail);
+        Client resultat = (Client) query.getSingleResult();
+        
+        JpaUtil.validerTransaction();
+        
+        if (resultat == null) res=false;
+        
+        return res;
+    }
 }
