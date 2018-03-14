@@ -22,13 +22,10 @@ public class EmployeDAO extends JpaUtil{
     */
     public static String trouverProfilClient(Long idClient){
         EntityManager em = JpaUtil.obtenirEntityManager();
-        
         Query query = em.createQuery("select * from Client where idClient= :id");
         query.setParameter("id", idClient);
         Client resultat = (Client) query.getSingleResult();
-        
         JpaUtil.validerTransaction();
-        
         return resultat.toString();
     }
     

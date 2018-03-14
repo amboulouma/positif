@@ -17,28 +17,28 @@ import aaa.dasi.positif.ServicesMetiers.Modeles.Voyance;
  */
 public class ServiceEmploye {
     
-   public static void demarrerVoyance(Voyance voyance){
+    public static void demarrerVoyance(Voyance voyance){
         JpaUtil.creerEntityManager();
         JpaUtil.ouvrirTransaction();
         //ClientDAO.persist(client);
         JpaUtil.validerTransaction();
     }
    
-   public static void cloturerVoyance(Voyance voyance){
+    public static void cloturerVoyance(Voyance voyance){
         JpaUtil.creerEntityManager();
         JpaUtil.ouvrirTransaction();
         //ClientDAO.persist(client);
         JpaUtil.validerTransaction();
     }
    
-   public static void voirHistoriqueClient(Client client){
+    public static void voirHistoriqueClient(Client client){
         JpaUtil.creerEntityManager();
         JpaUtil.ouvrirTransaction();
         //ClientDAO.persist(client);
         JpaUtil.validerTransaction();
     }
    
-   public static void voirProfilClient(Long idClient){
+    public static void voirProfilClient(Long idClient){
         JpaUtil.creerEntityManager();
         JpaUtil.ouvrirTransaction();
         EmployeDAO.trouverProfilClient(idClient);
