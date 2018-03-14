@@ -38,11 +38,13 @@ public class ServiceEmploye {
         JpaUtil.validerTransaction();
     }
    
-    public static void voirProfilClient(Long idClient){
+    public static Client voirProfilClient(Long idClient){
+        Client client;
         JpaUtil.creerEntityManager();
         JpaUtil.ouvrirTransaction();
-        EmployeDAO.trouverProfilClient(idClient);
+        client=EmployeDAO.trouverClient(idClient);
         JpaUtil.validerTransaction();
+        return client;
     }
     
 }

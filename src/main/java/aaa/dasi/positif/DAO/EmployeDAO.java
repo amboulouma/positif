@@ -20,13 +20,13 @@ public class EmployeDAO extends JpaUtil{
     /*
     retourne la description textuelle du profil du client concerné par la voyance
     */
-    public static String trouverProfilClient(Long idClient){
+     public static Client trouverClient(Long idClient){
         EntityManager em = JpaUtil.obtenirEntityManager();
         Query query = em.createQuery("select * from Client where idClient= :id");
         query.setParameter("id", idClient);
         Client resultat = (Client) query.getSingleResult();
         JpaUtil.validerTransaction();
-        return resultat.toString();
+        return resultat;
     }
     
 }
