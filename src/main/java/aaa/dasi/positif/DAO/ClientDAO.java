@@ -14,27 +14,11 @@ import javax.persistence.Persistence;
  *
  * @author aelomarial
  */
-public class ClientDAO {
-    
-    private EntityManager em;
-    
-    public ClientDAO(EntityManager em){
-        this.em=em;
-    }
-    
+public class ClientDAO extends JpaUtil{
+      
     public static void persist(Client client) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPAUnit");
-        EntityManager em = emf.createEntityManager();
-        em.getTransaction().begin();
-        try {
-            em.persist(client);
-            em.getTransaction().commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            em.getTransaction().rollback();
-        } finally {
-            em.close();
-        }
+        EntityManager em = JpaUtil.obtenirEntityManager();
+        em.persist(client);
     }
     
 }

@@ -19,6 +19,10 @@ public class ProfilAstrologique {
     private String couleurPorteBonheur;
     private String animalTotem;
 
+    public ProfilAstrologique() {
+    }
+
+    
     public ProfilAstrologique(String signeZodiaque, String signeAstrologique, String couleurPorteBonheur, String animalTotem) {
         this.signeZodiaque = signeZodiaque;
         this.signeAstrologique = signeAstrologique;

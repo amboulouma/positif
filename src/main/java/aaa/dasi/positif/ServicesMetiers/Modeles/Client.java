@@ -38,6 +38,10 @@ public class Client implements Serializable {
     @Embedded
     private ProfilAstrologique profilAstrologique;
 
+    public Client() {
+    }
+
+    
     public Client(String nom, String prenom, String civilite, Date dateNaissance, AdressePostale adressePostale, String telephone, String mail, ProfilAstrologique profilAstrologique) {
         this.nom = nom;
         this.prenom = prenom;

@@ -19,6 +19,11 @@ public class AdressePostale {
     private String pays;
     private String codePostale;
 
+    public AdressePostale() {
+    }
+    
+    
+
     public AdressePostale(String adresse, String ville, String pays, String codePostale) {
         this.adresse = adresse;
         this.ville = ville;
