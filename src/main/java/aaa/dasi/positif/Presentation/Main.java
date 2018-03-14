@@ -24,7 +24,6 @@ public class Main {
         Date dateNaissance = new Date(1997,12,01);
         Client client = new Client("Tom", "Martin", "M", dateNaissance, adressePostale, "06 12 03 07 78", "tom@martin.gs", profilAstrologique);        
         ServiceClient.inscriptionClient(client);
-        
         JpaUtil.destroy();
     }
 }
