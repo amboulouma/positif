@@ -8,6 +8,7 @@ import aaa.dasi.positif.ServicesMetiers.Modeles.Client;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Employe;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 /**
@@ -21,12 +22,12 @@ public class EmployeDAO extends JpaUtil{
     retourne la description textuelle du profil du client concerné par la voyance
     */
      public static Client trouverClient(Long idClient){
+ 
         EntityManager em = JpaUtil.obtenirEntityManager();
-        Query query = em.createQuery("select * from Client where idClient= :id");
-        query.setParameter("id", idClient);
-        Client resultat = (Client) query.getSingleResult();
+        Client resultat = em.find(Client.class, idClient);
         JpaUtil.validerTransaction();
         return resultat;
+     
     }
     
 }
