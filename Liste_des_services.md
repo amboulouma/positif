@@ -21,4 +21,5 @@ static List<String> genererPrediction(int amour, int sante, int travail);
 ## Services Administrateur
 ```
 static void ajoutMedium(Medium medium); 
+static void initPlatefome();
 ```
