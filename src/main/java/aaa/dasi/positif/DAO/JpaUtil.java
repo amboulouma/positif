@@ -170,7 +170,7 @@ public class JpaUtil {
      *
      * @return instance de Entity Manager
      */
-    protected static EntityManager obtenirEntityManager() {
+    public static EntityManager obtenirEntityManager() {
         log("Obtention du contexte de persistance");
         return threadLocalEntityManager.get();
     }

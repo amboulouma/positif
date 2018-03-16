@@ -6,8 +6,13 @@
 package aaa.dasi.positif.DAO;
 
 import aaa.dasi.positif.ServicesMetiers.Modeles.Client;
+import aaa.dasi.positif.ServicesMetiers.Modeles.Medium;
+import aaa.dasi.positif.ServicesMetiers.Modeles.Voyance;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
@@ -18,8 +23,12 @@ import javax.persistence.Query;
 public class ClientDAO extends JpaUtil{
       
     public static void persist(Client client) {
-        EntityManager em = JpaUtil.obtenirEntityManager();
-        em.persist(client);
+        try{
+            EntityManager em = JpaUtil.obtenirEntityManager();
+            em.persist(client);
+        }catch (Exception ex){
+            System.err.println("Erreur lors de la persistance du client.");
+        }
     }
  
     /*
@@ -27,17 +36,40 @@ public class ClientDAO extends JpaUtil{
     => client connecté
     */
     public static boolean trouverMail(String paramMail){
-        boolean res = true;
-        EntityManager em = JpaUtil.obtenirEntityManager();
-        
-        Query query = em.createQuery("select * from Client where mail= :mail");
-        query.setParameter("mail", paramMail);
-        Client resultat = (Client) query.getSingleResult();
-        
-        JpaUtil.validerTransaction();
-        
-        if (resultat == null) res=false;
-        
-        return res;
+        boolean resultat = false;
+        try{
+            
+            EntityManager em = JpaUtil.obtenirEntityManager();
+            Query query = em.createQuery("select c from Client c where c.mail= :mail");
+            query.setParameter("mail", paramMail);
+            Client client = (Client) query.getSingleResult();
+            resultat = true; 
+        }catch(NoResultException nRE){
+            System.err.println("Vous n'êtes pas encore inscrit dans notre plateforme");
+        }finally{
+            return resultat;
+        }     
+    }
+    
+    public static void persistVoyance(Voyance voyance) {
+        try{
+            EntityManager em = JpaUtil.obtenirEntityManager();
+            em.persist(voyance);
+        }catch(Exception ex) {
+            System.err.println("Erreur lors de la persistance de la voyance.");
+        }
+    }
+    
+    static List<Medium> getListMediums(){
+        List<Medium> mediums = new ArrayList<Medium>() ;
+        try{
+            EntityManager em = JpaUtil.obtenirEntityManager();
+            Query query = em.createQuery("select m from Medium m");
+            mediums = (List<Medium>) query.getResultList();
+        }catch(NoResultException nRE){
+            System.err.println("Aucun médium n'est enregistré.");
+        }finally{
+            return mediums;
+        }
     }
 }

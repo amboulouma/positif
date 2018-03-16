@@ -37,9 +37,8 @@ public class Medium implements Serializable {
 
     public Medium() {
     }
-
-    public Medium(Long idMedium, String nom, String bio, List<Employe> employe) {
-        this.idMedium = idMedium;
+    
+    public Medium(String nom, String bio, List<Employe> employe) {
         this.nom = nom;
         this.bio = bio;
         this.employe = employe;
@@ -117,12 +116,4 @@ public class Medium implements Serializable {
         }
         return true;
     }
-
-    @Override
-    public String toString() {
-        return "Medium{" + "idMedium=" + idMedium + ", nom=" + nom + ", bio=" + bio + ", employe=" + employe + '}';
-    }
-    
-    
-    
 }

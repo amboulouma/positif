@@ -41,8 +41,7 @@ public class Voyance implements Serializable {
     public Voyance() {
     }
 
-    public Voyance(Long idVoyance, Date dateDebut, Date dateFin, String commentaire, Employe employe, Medium medium, Client client) {
-        this.idVoyance = idVoyance;
+    public Voyance(Date dateDebut, Date dateFin, String commentaire, Employe employe, Medium medium, Client client) {
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
         this.commentaire = commentaire;
@@ -53,6 +52,11 @@ public class Voyance implements Serializable {
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
+    }
+
+    public Voyance(Medium medium, Client client) {
+        this.medium = medium;
+        this.client = client;
     }
 
     public Long getIdVoyance() {

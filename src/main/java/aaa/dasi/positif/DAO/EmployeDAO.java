@@ -21,13 +21,10 @@ public class EmployeDAO extends JpaUtil{
     /*
     retourne la description textuelle du profil du client concerné par la voyance
     */
-     public static Client trouverClient(Long idClient){
- 
+    public static Client trouverClient(Long idClient){
         EntityManager em = JpaUtil.obtenirEntityManager();
         Client resultat = em.find(Client.class, idClient);
         JpaUtil.validerTransaction();
         return resultat;
-     
-    }
-    
+    }  
 }
