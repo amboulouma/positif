@@ -139,7 +139,7 @@ public class Main {
         System.out.println("[Employe] Demonstation du service - static void "
                 + "cloturerVoyanceSansCommentaire(Voyance voyance) :");
         System.out.println();
-        //ServiceEmploye.cloturerVoyanceSansCommentaire();
+        ServiceEmploye.cloturerVoyanceSansCommentaire(voyance);
         System.out.println();
         
         System.out.println();

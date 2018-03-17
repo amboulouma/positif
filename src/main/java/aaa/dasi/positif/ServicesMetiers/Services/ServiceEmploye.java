@@ -48,7 +48,11 @@ public class ServiceEmploye {
     public static void cloturerVoyanceSansCommentaire(Voyance voyance){
         System.out.println("[ServiceEmploye] Service cloturer la voyance "
                 + "avec le client sans commentaire de l'employé lancé.");
-        
+        Date dateFin = new Date();
+        JpaUtil.creerEntityManager();
+        JpaUtil.ouvrirTransaction();
+        EmployeDAO.persistDateFinVoyance(voyance, dateFin);
+        JpaUtil.validerTransaction();
     }
     
     

@@ -45,8 +45,21 @@ public class EmployeDAO extends JpaUtil{
             System.out.println("[EmployeDAO] Ajout de la date de début de "
                     + "la voyance réussi.");
         }catch(Exception ex) {
-            System.err.println("[EmployeDAO] Ajout de la date de début de la voyance "
-                    + "non réussi.");
+            System.err.println("[EmployeDAO] Ajout de la date de début "
+                    + "de la voyance non réussi.");
+        }
+    }
+
+    public static void persistDateFinVoyance(Voyance voyance, Date dateFin) {
+        try{
+            EntityManager em = JpaUtil.obtenirEntityManager();
+            voyance.setDateFin(dateFin);
+            em.merge(voyance);
+            System.out.println("[EmployeDAO] Ajout de la date de fin de "
+                    + "la voyance réussi.");
+        }catch(Exception ex) {
+            System.err.println("[EmployeDAO] Ajout de la date de fin "
+                    + "de la voyance non réussi.");
         }
     }
 }

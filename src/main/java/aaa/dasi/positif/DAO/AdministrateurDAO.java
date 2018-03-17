@@ -69,10 +69,9 @@ public class AdministrateurDAO extends JpaUtil{
                     + client.getNom() + " " + client.getPrenom() + " (#" 
                     + client.getIdClient() + "), Médium : " + medium.getNom();
             EntityManager em = JpaUtil.obtenirEntityManager();
-            employe.setVoyance((List<Voyance>) voyance);
-            employe.setMedium((List<Medium>) medium);
+            voyance.setEmploye(employe);
+            voyance.setMedium(medium);
             employe.setDisponible(false);
-            em.merge(employe);
             System.out.println("[AdministrateurDAO] modification de la voyance "
                     + "réussie.");
         }catch(Exception ex) {
