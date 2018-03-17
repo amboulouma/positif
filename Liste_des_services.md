@@ -2,7 +2,7 @@
 
 ## Services Administrateur
 ```
-static void initPlatefome();
+static void initPositif();
 static void ajoutEmploye(Employe employe); 
 static void ajoutMedium(Medium medium); 
 static Voyance affectationVoyance(Medium medium, Client client, Voyance voyance);

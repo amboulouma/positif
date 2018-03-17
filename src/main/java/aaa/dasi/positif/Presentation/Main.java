@@ -50,10 +50,10 @@ public class Main {
         Employe employe = new Employe("Kevin", "Musk");
         
         System.out.println();
-        System.out.println("[Administrateur] Demonstation du service - "
-                + "static void initPlatefome() :");
+        System.out.println("[Administrateur] Initalisation de la plateforme "
+                + "avec le service - static void initpositif() :");
         System.out.println();
-        //ServiceAdministrateur.initPlatefome();
+//        ServiceAdministrateur.initPositif();
         System.out.println();
         
         System.out.println();

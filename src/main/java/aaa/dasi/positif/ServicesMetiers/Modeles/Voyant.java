@@ -23,6 +23,7 @@ public class Voyant extends Medium implements Serializable {
     private String support;
 
     public Voyant() {
+        
     }
 
     public Voyant(String support, String nom, String bio) {
