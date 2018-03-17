@@ -24,7 +24,6 @@ public class ClientDAO extends JpaUtil{
         String mailDeConfirmation = "Expediteur : contact@posit.if\n"
                 + "Pour : " + client.getMail() + "\n"
                 + "Sujet : Bienvenue chez POSIT'IF\n\n";
-                
         try{
             EntityManager em = JpaUtil.obtenirEntityManager();
             em.persist(client);
@@ -66,6 +65,7 @@ public class ClientDAO extends JpaUtil{
             Query query = em.createQuery("select c from Client c "
                     + "where c.mail= :mail");
             query.setParameter("mail", paramMail);
+            Client client = (Client)query.getSingleResult();
             System.out.println("[ClientDAO] le client se trouve dans "
                     + "la base de données.");
             resultat = true; 
