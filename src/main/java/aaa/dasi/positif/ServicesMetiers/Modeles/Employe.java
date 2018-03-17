@@ -1,8 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * POSIT'IF 2018
+ * 
+ * 
+ * @author B3432
+ * @author Abdelaziz El Omari Alaoui
+ * @author Agathe Sauvestre
+ * @author Amine Mohamed Boulouma
  */
+
+
 package aaa.dasi.positif.ServicesMetiers.Modeles;
 
 import java.io.Serializable;
@@ -16,10 +22,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 
-/**
- *
- * @author amine
- */
 @Entity
 public class Employe implements Serializable {
 

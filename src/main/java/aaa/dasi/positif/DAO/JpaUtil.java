@@ -1,3 +1,13 @@
+/**
+ * POSIT'IF 2018
+ * 
+ * 
+ * @author B3432
+ * @author Abdelaziz El Omari Alaoui
+ * @author Agathe Sauvestre
+ * @author Amine Mohamed Boulouma
+ */
+
 package aaa.dasi.positif.DAO;
 
 import javax.persistence.EntityManager;
@@ -5,14 +15,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.RollbackException;
 
-/**
- * Cette classe fournit des méthodes statiques utiles pour accéder aux
- * fonctionnalités de JPA (Entity Manager, Entity Transaction). Le nom de
- * l'unité de persistance (PERSISTENCE_UNIT_NAME) doit être conforme à la
- * configuration indiquée dans le fichier persistence.xml du projet.
- *
- * @author DASI Team
- */
+
 public class JpaUtil {
 
     // *************************************************************************************

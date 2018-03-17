@@ -1,8 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * POSIT'IF 2018
+ * 
+ * 
+ * @author B3432
+ * @author Abdelaziz El Omari Alaoui
+ * @author Agathe Sauvestre
+ * @author Amine Mohamed Boulouma
  */
+
 package aaa.dasi.positif.DAO;
 
 import aaa.dasi.positif.ServicesMetiers.Modeles.Client;
@@ -14,10 +19,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
-/**
- *
- * @author aelomarial
- */
+
 public class ClientDAO extends JpaUtil{
       
     public static String persistClient(Client client) {

@@ -1,21 +1,34 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * POSIT'IF 2018
+ * 
+ * 
+ * @author B3432
+ * @author Abdelaziz El Omari Alaoui
+ * @author Agathe Sauvestre
+ * @author Amine Mohamed Boulouma
  */
+
+
 package aaa.dasi.positif.DAO;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Client;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Employe;
-import aaa.dasi.positif.ServicesMetiers.Modeles.Medium;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Voyance;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
+
+
 /**
- *
- * @author aelomarial
+ * POSIT'IF 2018
+ * 
+ * 
+ * @author B3432
+ * @author Abdelaziz El Omari Alaoui
+ * @author Agathe Sauvestre
+ * @author Amine Mohamed Boulouma
  */
+
+
 public class EmployeDAO extends JpaUtil{
     
     

@@ -1,8 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * POSIT'IF 2018
+ * 
+ * 
+ * @author B3432
+ * @author Abdelaziz El Omari Alaoui
+ * @author Agathe Sauvestre
+ * @author Amine Mohamed Boulouma
  */
+
+
 package aaa.dasi.positif.ServicesMetiers.Services;
 
 import aaa.dasi.positif.DAO.AdministrateurDAO;
@@ -15,10 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
 
-/**
- *
- * @author aelomarial
- */
 public class ServiceEmploye {
     
     public static Client retournerClient(Long idClient){
@@ -39,7 +41,8 @@ public class ServiceEmploye {
     }
     
     
-    public static void cloturerVoyanceAvecCommentaire(Voyance voyance, String commentaire, Employe employe){
+    public static void cloturerVoyanceAvecCommentaire(Voyance voyance, 
+            String commentaire, Employe employe){
         System.out.println("[ServiceEmploye] Service cloturer la voyance "
                 + "avec le client avec commentaire de l'employé lancé.");
         Date dateFin = new Date();
@@ -52,7 +55,8 @@ public class ServiceEmploye {
     }
     
     
-    public static void cloturerVoyanceSansCommentaire(Voyance voyance, Employe employe){
+    public static void cloturerVoyanceSansCommentaire(Voyance voyance, 
+            Employe employe){
         System.out.println("[ServiceEmploye] Service cloturer la voyance "
                 + "avec le client sans commentaire de l'employé lancé.");
         Date dateFin = new Date();
@@ -71,7 +75,8 @@ public class ServiceEmploye {
     }
     
     
-    public static List<String> genererPredictions(int amour, int sante, int travail){
+    public static List<String> genererPredictions(int amour, int sante, 
+            int travail){
         List<String> predictions = new ArrayList<String>() ;
         
         return predictions;

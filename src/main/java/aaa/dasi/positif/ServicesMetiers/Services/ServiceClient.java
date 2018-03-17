@@ -1,11 +1,16 @@
-    /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * POSIT'IF 2018
+ * 
+ * 
+ * @author B3432
+ * @author Abdelaziz El Omari Alaoui
+ * @author Agathe Sauvestre
+ * @author Amine Mohamed Boulouma
  */
+
+
 package aaa.dasi.positif.ServicesMetiers.Services;
 
-import aaa.dasi.positif.DAO.AdministrateurDAO;
 import aaa.dasi.positif.DAO.ClientDAO;
 import aaa.dasi.positif.DAO.JpaUtil;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Client;
@@ -14,10 +19,7 @@ import aaa.dasi.positif.ServicesMetiers.Modeles.Voyance;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author aelomarial
- */
+
 public class ServiceClient{
     
     public static String inscriptionClient(Client client){

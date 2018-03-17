@@ -1,8 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * POSIT'IF 2018
+ * 
+ * 
+ * @author B3432
+ * @author Abdelaziz El Omari Alaoui
+ * @author Agathe Sauvestre
+ * @author Amine Mohamed Boulouma
  */
+
+
 package aaa.dasi.positif.Presentation;
 
 import aaa.dasi.positif.DAO.JpaUtil;
@@ -16,12 +22,8 @@ import aaa.dasi.positif.ServicesMetiers.Services.ServiceAdministrateur;
 import aaa.dasi.positif.ServicesMetiers.Services.ServiceClient;
 import aaa.dasi.positif.ServicesMetiers.Services.ServiceEmploye;
 import java.util.Date;
-import java.util.List;
 
-/**
- *
- * @author aelomarial
- */
+
 public class Main {
     public static void main(String[] args){
         
@@ -133,7 +135,8 @@ public class Main {
                 + "String commentaire) :");
         System.out.println();
         String commentaire = "Un commentaire pour tester.";
-        ServiceEmploye.cloturerVoyanceAvecCommentaire(voyance, commentaire, employe);
+        ServiceEmploye.cloturerVoyanceAvecCommentaire(voyance, commentaire, 
+                employe);
         System.out.println();
         
         System.out.println();

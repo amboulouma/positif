@@ -1,8 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+
+/**
+ * POSIT'IF 2018
+ * 
+ * 
+ * @author B3432
+ * @author Abdelaziz El Omari Alaoui
+ * @author Agathe Sauvestre
+ * @author Amine Mohamed Boulouma
  */
+
 package aaa.dasi.positif.DAO;
 
 import aaa.dasi.positif.ServicesMetiers.Modeles.Client;
@@ -13,11 +19,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
-
-/**
- *
- * @author amine
- */
 
 public class AdministrateurDAO extends JpaUtil{
     public static void persistMedium(Medium medium) {
@@ -54,7 +55,8 @@ public class AdministrateurDAO extends JpaUtil{
                         + "where e.disponible= :disponible");
             query.setParameter("disponible", true);
             employe = (Employe)query.getSingleResult();
-            System.out.println("[AdministrateurDAO] Employé disponible trouvé.");
+            System.out.println("[AdministrateurDAO] Employé disponible "
+                    + "trouvé.");
         }catch(NoResultException nRE){
             System.err.println("[AdministrateurDAO] Aucun employé disponible "
                     + "trouvé.");
@@ -62,7 +64,8 @@ public class AdministrateurDAO extends JpaUtil{
         return employe;
     }
 
-    public static String modifierVoyance(Voyance voyance, Medium medium, Client client, Employe employe) {
+    public static String modifierVoyance(Voyance voyance, Medium medium, 
+            Client client, Employe employe) {
         String notificationEmploye = "";
         try{
             notificationEmploye += "Voyance demandée pour le client " 
