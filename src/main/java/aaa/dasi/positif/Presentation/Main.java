@@ -132,14 +132,15 @@ public class Main {
                 + "cloturerVoyanceAvecCommentaire(Voyance voyance, "
                 + "String commentaire) :");
         System.out.println();
-        //ServiceEmploye.cloturerVoyanceAvecCommentaire(commentaire);
+        String commentaire = "Un commentaire pour tester.";
+        ServiceEmploye.cloturerVoyanceAvecCommentaire(voyance, commentaire);
         System.out.println();
         
         System.out.println();
         System.out.println("[Employe] Demonstation du service - static void "
                 + "cloturerVoyanceSansCommentaire(Voyance voyance) :");
         System.out.println();
-        ServiceEmploye.cloturerVoyanceSansCommentaire(voyance);
+        //ServiceEmploye.cloturerVoyanceSansCommentaire(voyance);
         System.out.println();
         
         System.out.println();

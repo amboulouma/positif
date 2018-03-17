@@ -37,7 +37,7 @@ public class EmployeDAO extends JpaUtil{
         }     
     }  
 
-    public static void persistDateDebutVoyance(Voyance voyance, Date dateDebut) {
+    public static void mergeDateDebutVoyance(Voyance voyance, Date dateDebut) {
         try{
             EntityManager em = JpaUtil.obtenirEntityManager();
             voyance.setDateDebut(dateDebut);
@@ -50,7 +50,7 @@ public class EmployeDAO extends JpaUtil{
         }
     }
 
-    public static void persistDateFinVoyance(Voyance voyance, Date dateFin) {
+    public static void mergeDateFinVoyance(Voyance voyance, Date dateFin) {
         try{
             EntityManager em = JpaUtil.obtenirEntityManager();
             voyance.setDateFin(dateFin);
@@ -59,6 +59,19 @@ public class EmployeDAO extends JpaUtil{
                     + "la voyance réussi.");
         }catch(Exception ex) {
             System.err.println("[EmployeDAO] Ajout de la date de fin "
+                    + "de la voyance non réussi.");
+        }
+    }
+
+    public static void mergeCommentaire(Voyance voyance, String commentaire) {
+         try{
+            EntityManager em = JpaUtil.obtenirEntityManager();
+            voyance.setCommentaire(commentaire);
+            em.merge(voyance);
+            System.out.println("[EmployeDAO] Ajout du commentaire de "
+                    + "la voyance réussi.");
+        }catch(Exception ex) {
+            System.err.println("[EmployeDAO] Ajout du commentaire "
                     + "de la voyance non réussi.");
         }
     }
