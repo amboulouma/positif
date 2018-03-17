@@ -86,7 +86,7 @@ public class Main {
         System.out.println("[Client] Demonstation du service : "
                 + "creerVoyance :");
         System.out.println();
-        System.out.println(ServiceClient.creerVoyance(mediumMark, client));
+        System.out.println(ServiceClient.demanderVoyance(mediumMark, client));
         System.out.println();
         
         System.out.println();

@@ -5,7 +5,7 @@
 static String inscriptionClient(Client client);
 static boolean connexionClient(String mail);
 static List<Medium> genererMediums();
-static Voyance creerVoyance(Medium medium, Client client);
+static Voyance demanderVoyance(Medium medium, Client client);
 static List<Voyance> genererHistoriqueVoyances(Client client);
 ```
 ## Services Employes

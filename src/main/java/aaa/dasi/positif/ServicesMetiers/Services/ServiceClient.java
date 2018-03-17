@@ -38,7 +38,7 @@ public class ServiceClient{
     }
     
     
-    public static Voyance creerVoyance(Medium medium, Client client){
+    public static Voyance demanderVoyance(Medium medium, Client client){
         System.out.println("[ServiceClient] Service de la création de la "
                 + "voyance pour le client lancé.");
         JpaUtil.creerEntityManager();
