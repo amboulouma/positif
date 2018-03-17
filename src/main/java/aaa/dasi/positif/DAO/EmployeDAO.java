@@ -5,7 +5,11 @@
  */
 package aaa.dasi.positif.DAO;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Client;
+import aaa.dasi.positif.ServicesMetiers.Modeles.Employe;
+import aaa.dasi.positif.ServicesMetiers.Modeles.Medium;
+import aaa.dasi.positif.ServicesMetiers.Modeles.Voyance;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 /**
@@ -33,9 +37,16 @@ public class EmployeDAO extends JpaUtil{
         }     
     }  
 
-    public static void persistDateDebutConversation(Date dateDebut) {
-        
+    public static void persistDateDebutVoyance(Voyance voyance, Date dateDebut) {
+        try{
+            EntityManager em = JpaUtil.obtenirEntityManager();
+            voyance.setDateDebut(dateDebut);
+            em.merge(voyance);
+            System.out.println("[EmployeDAO] Ajout de la date de début de "
+                    + "la voyance réussi.");
+        }catch(Exception ex) {
+            System.err.println("[EmployeDAO] Ajout de la date de début de la voyance "
+                    + "non réussi.");
+        }
     }
-    
-    
 }

@@ -11,6 +11,7 @@ import aaa.dasi.positif.ServicesMetiers.Modeles.Client;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Employe;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Medium;
 import aaa.dasi.positif.ServicesMetiers.Modeles.ProfilAstrologique;
+import aaa.dasi.positif.ServicesMetiers.Modeles.Voyance;
 import aaa.dasi.positif.ServicesMetiers.Services.ServiceAdministrateur;
 import aaa.dasi.positif.ServicesMetiers.Services.ServiceClient;
 import aaa.dasi.positif.ServicesMetiers.Services.ServiceEmploye;
@@ -99,7 +100,8 @@ public class Main {
                 + "static Voyance affectationVoyance(Medium medium, "
                 + "Client client, Voyance voyance) :");
         System.out.println();
-        System.out.println(ServiceClient.demanderVoyance(medium, client));
+        Voyance voyance = ServiceClient.demanderVoyance(medium, client);
+        System.out.println(voyance);
         System.out.println();
         
         System.out.println();
@@ -122,7 +124,7 @@ public class Main {
         System.out.println("[Employe] Demonstation du service - "
                 + "static void demarerVoyance(Voyance voyance) :");
         System.out.println();
-        //ServiceEmploye.demarerVoyance(idClient, idEmploye, idMedium);
+        ServiceEmploye.demarerVoyance(voyance);
         System.out.println();
         
         System.out.println();

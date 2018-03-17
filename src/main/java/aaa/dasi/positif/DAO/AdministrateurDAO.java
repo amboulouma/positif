@@ -72,7 +72,7 @@ public class AdministrateurDAO extends JpaUtil{
             employe.setVoyance((List<Voyance>) voyance);
             employe.setMedium((List<Medium>) medium);
             employe.setDisponible(false);
-            em.persist(employe);
+            em.merge(employe);
             System.out.println("[AdministrateurDAO] modification de la voyance "
                     + "réussie.");
         }catch(Exception ex) {

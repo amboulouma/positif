@@ -5,7 +5,9 @@
  */
 package aaa.dasi.positif.ServicesMetiers.Services;
 
+import aaa.dasi.positif.DAO.AdministrateurDAO;
 import aaa.dasi.positif.DAO.EmployeDAO;
+import aaa.dasi.positif.DAO.JpaUtil;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Client;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Voyance;
 import java.util.ArrayList;
@@ -29,7 +31,10 @@ public class ServiceEmploye {
         System.out.println("[ServiceEmploye] Service demarer la voyance "
                 + "avec le client de l'employé lancé.");
         Date dateDebut = new Date();
-        EmployeDAO.persistDateDebutConversation(dateDebut);
+        JpaUtil.creerEntityManager();
+        JpaUtil.ouvrirTransaction();
+        EmployeDAO.persistDateDebutVoyance(voyance, dateDebut);
+        JpaUtil.validerTransaction();
     }
     
     
@@ -59,4 +64,5 @@ public class ServiceEmploye {
         
         return predictions;
     }
+
 }
