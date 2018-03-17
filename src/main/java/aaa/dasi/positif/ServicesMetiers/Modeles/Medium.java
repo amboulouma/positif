@@ -119,6 +119,7 @@ public class Medium implements Serializable {
 
     @Override
     public String toString() {
-        return "Medium{" + "idMedium=" + idMedium + ", nom=" + nom + ", bio=" + bio + ", employe=" + employe + '}';
+        return "Medium{" + "idMedium=" + idMedium + ", nom=" + nom 
+                + ", bio=" + bio + ", employe=" + employe + '}';
     }
 }

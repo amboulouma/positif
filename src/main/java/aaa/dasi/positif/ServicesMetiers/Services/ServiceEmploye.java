@@ -6,10 +6,7 @@
 package aaa.dasi.positif.ServicesMetiers.Services;
 
 import aaa.dasi.positif.DAO.EmployeDAO;
-import aaa.dasi.positif.DAO.JpaUtil;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Client;
-import aaa.dasi.positif.ServicesMetiers.Modeles.Employe;
-import aaa.dasi.positif.ServicesMetiers.Modeles.Voyance;
 
 /**
  *
@@ -17,13 +14,10 @@ import aaa.dasi.positif.ServicesMetiers.Modeles.Voyance;
  */
 public class ServiceEmploye {
     
-    public static Client trouverClient(Long idClient){
-        Client c;
-        JpaUtil.creerEntityManager();
-        JpaUtil.ouvrirTransaction();
-        c=EmployeDAO.trouverClient(idClient);
-        JpaUtil.validerTransaction();
-        return c;
+    public static Client retournerClient(Long idClient){
+        System.out.println("[ServiceEmploye] Service retourner client de "
+                + "l'employé lancé.");
+        return EmployeDAO.trouverClient(idClient);
     }
     
     

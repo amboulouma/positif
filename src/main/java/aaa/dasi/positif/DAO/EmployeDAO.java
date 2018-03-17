@@ -5,12 +5,8 @@
  */
 package aaa.dasi.positif.DAO;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Client;
-import aaa.dasi.positif.ServicesMetiers.Modeles.Employe;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
 /**
  *
  * @author aelomarial
@@ -22,9 +18,17 @@ public class EmployeDAO extends JpaUtil{
     retourne la description textuelle du profil du client concerné par la voyance
     */
     public static Client trouverClient(Long idClient){
-        EntityManager em = JpaUtil.obtenirEntityManager();
-        Client resultat = em.find(Client.class, idClient);
-        JpaUtil.validerTransaction();
-        return resultat;
+        Client client = new Client();
+        try{
+            EntityManager em = JpaUtil.obtenirEntityManager();
+            client = em.find(Client.class, idClient);
+            System.out.println("[EmployeDAO] le client se trouve dans "
+                    + "la base de données.");
+        }catch(NoResultException nRE){
+            System.err.println("[EmployeDAO] le client ne se trouve pas dans "
+                    + "la base de données.");
+        }finally{
+            return client;
+        }     
     }  
 }

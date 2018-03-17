@@ -2,15 +2,15 @@
 
 ## Services Clients
 ```
-//static void inscriptionClient(Client client);
-//static boolean connexionClient(String mail);
-//static List<Medium> genererMediums();
-//static Voyance creerVoyance(Medium medium, Client client);
-//static List<Voyance> genererHistoriqueVoyances(Client client);
+static void inscriptionClient(Client client);
+static boolean connexionClient(String mail);
+static List<Medium> genererMediums();
+static Voyance creerVoyance(Medium medium, Client client);
+static List<Voyance> genererHistoriqueVoyances(Client client);
 ```
 ## Services Employes
 ```
-static Client trouverClient(Long idClient); (pas testé)
+static Client retournerClient(Long idClient); (pas testé)
 static void demarerConversation(Long idClient, Long idEmploye, Long idMedium);
 static void cloturerConversationAvecCommentaire(String commentaire);
 static void cloturerConversationSansCommentaire();

@@ -86,7 +86,7 @@ public class Main {
         System.out.println("[Client] Demonstation du service : "
                 + "creerVoyance :");
         System.out.println();
-        ServiceClient.creerVoyance(mediumMark, client);
+        System.out.println(ServiceClient.creerVoyance(mediumMark, client));
         System.out.println();
         
         System.out.println();
@@ -98,9 +98,10 @@ public class Main {
         System.out.println();
         
         System.out.println();
-        System.out.println("[Employe] Demonstation du service : trouverCient :");
+        System.out.println("[Employe] Demonstation du service : "
+                + "retournerClient :");
         System.out.println();
-        //ServiceEmploye.trouverCient(idClient);
+        System.out.println(ServiceEmploye.retournerClient(idClient));
         System.out.println();
         
         System.out.println();
