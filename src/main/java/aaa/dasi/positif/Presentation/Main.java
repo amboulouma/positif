@@ -49,97 +49,108 @@ public class Main {
         Employe employe = new Employe("Kevin", "Musk");
         
         System.out.println();
-        System.out.println("[Administrateur] Demonstation du service : "
-                + "initPlatefome :");
+        System.out.println("[Administrateur] Demonstation du service - "
+                + "static void initPlatefome() :");
         System.out.println();
         //ServiceAdministrateur.initPlatefome();
         System.out.println();
         
         System.out.println();
-        System.out.println("[Administrateur] Demonstation du service : "
-                + "ajoutEmploye :");
+        System.out.println("[Administrateur] Demonstation du service - "
+                + "static void ajoutEmploye(Employe employe) :");
         System.out.println();
         ServiceAdministrateur.ajoutEmploye(employe);
         System.out.println();
         
         System.out.println();
-        System.out.println("[Administrateur] Demonstation du service : "
-                + "ajoutMedium :");
+        System.out.println("[Administrateur] Demonstation du service - "
+                + "static void ajoutMedium(Medium medium) -");
         System.out.println();
         ServiceAdministrateur.ajoutMedium(medium);
         System.out.println();
         
         System.out.println();
-        System.out.println("[Client] Demonstation du service : "
-                + "inscriptionClient :");
+        System.out.println("[Client] Demonstation du service - "
+                + "static String inscriptionClient(Client client) :");
         System.out.println();
         System.out.println(ServiceClient.inscriptionClient(client));
         System.out.println();
         
         System.out.println();
-        System.out.println("[Client] Demonstation du service : "
-                + "connexionClient :");
+        System.out.println("[Client] Demonstation du service - "
+                + "static boolean connexionClient(String mail) :");
         System.out.println();
         System.out.println(ServiceClient.connexionClient("tom@martin.gs"));
         System.out.println(ServiceClient.connexionClient("tom@martan.gs"));
         System.out.println();
         
         System.out.println();
-        System.out.println("[Client] Demonstation du service : "
-                + "genererMediums :");
+        System.out.println("[Client] Demonstation du service - "
+                + "static List<Medium> genererMediums() :");
         System.out.println();
         System.out.println(ServiceClient.genererMediums());
         System.out.println();
         
         System.out.println();
-        System.out.println("[Client] Demonstation du service : "
-                + "demanderVoyance :");
+        System.out.println("[Client] Demonstation du service - "
+                + "static Voyance demanderVoyance(Medium medium,"
+                + " Client client) :");
+        System.out.println("[Administrateur] Demonstation du service - "
+                + "static Voyance affectationVoyance(Medium medium, "
+                + "Client client, Voyance voyance) :");
         System.out.println();
         System.out.println(ServiceClient.demanderVoyance(medium, client));
         System.out.println();
         
         System.out.println();
-        System.out.println("[Client] Demonstation du service : "
-                + "genererHistoriqueVoyances :");
+        System.out.println("[Client] Demonstation du service - "
+                + "static List<Voyance> "
+                + "genererHistoriqueVoyances(Client client) :");
         System.out.println();
         Long idClient = client.getIdClient();
         System.out.println(ServiceClient.genererHistoriqueVoyances(idClient));
         System.out.println();
         
         System.out.println();
-        System.out.println("[Employe] Demonstation du service : "
-                + "retournerClient :");
+        System.out.println("[Employe] Demonstation du service - "
+                + "static Client retournerClient(Long idClient) :");
         System.out.println();
         System.out.println(ServiceEmploye.retournerClient(idClient));
         System.out.println();
         
         System.out.println();
-        System.out.println("[Employe] Demonstation du service : "
-                + "demarerVoyance :");
+        System.out.println("[Employe] Demonstation du service - "
+                + "static void demarerVoyance(Voyance voyance) :");
         System.out.println();
-        //ServiceEmploye.demarerConversation(idClient, idEmploye, idMedium);
-        System.out.println();
-        
-        System.out.println();
-        System.out.println("[Employe] Demonstation du service : cloturerVoyanceAvecCommentaire :");
-        System.out.println();
-        //ServiceEmploye.cloturerConversationAvecCommentaire(commentaire);
+        //ServiceEmploye.demarerVoyance(idClient, idEmploye, idMedium);
         System.out.println();
         
         System.out.println();
-        System.out.println("[Employe] Demonstation du service : cloturerVoyanceSansCommentaire :");
+        System.out.println("[Employe] Demonstation du service - static void "
+                + "cloturerVoyanceAvecCommentaire(Voyance voyance, "
+                + "String commentaire) :");
         System.out.println();
-        //ServiceEmploye.cloturerConversationSansCommentaire();
+        //ServiceEmploye.cloturerVoyanceAvecCommentaire(commentaire);
         System.out.println();
         
         System.out.println();
-        System.out.println("[Employe] Demonstation du service : visualiserStatistiquesMedium :");
+        System.out.println("[Employe] Demonstation du service - static void "
+                + "cloturerVoyanceSansCommentaire(Voyance voyance) :");
+        System.out.println();
+        //ServiceEmploye.cloturerVoyanceSansCommentaire();
+        System.out.println();
+        
+        System.out.println();
+        System.out.println("[Employe] Demonstation du service - static String "
+                + "visualiserStatistiquesMedium() :");
         System.out.println();
         //ServiceEmploye.visualiserStatistiquesMedium();
         System.out.println();
         
         System.out.println();
-        System.out.println("[Employe] Demonstation du service : genererPredictions :");
+        System.out.println("[Employe] Demonstation du service - static "
+                + "List<String> genererPredictions(int amour, int sante, "
+                + "int travail) :");
         System.out.println();
         //ServiceEmploye.genererPredictions(amour, sante, travail);
         System.out.println();
