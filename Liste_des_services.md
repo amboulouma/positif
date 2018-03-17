@@ -11,9 +11,9 @@ static List<Voyance> genererHistoriqueVoyances(Client client);
 ## Services Employes
 ```
 static Client retournerClient(Long idClient); (pas testé)
-static void demarerConversation(Long idClient, Long idEmploye, Long idMedium);
-static void cloturerConversationAvecCommentaire(String commentaire);
-static void cloturerConversationSansCommentaire();
+static void demarerVoyance(Voyance voyance);
+static void cloturerVoyanceAvecCommentaire(Voyance voyance, String commentaire);
+static void cloturerVoyanceSansCommentaire(Voyance voyance);
 static String visualiserStatistiquesMedium();
 static List<String> genererPredictions(int amour, int sante, int travail);
 ```

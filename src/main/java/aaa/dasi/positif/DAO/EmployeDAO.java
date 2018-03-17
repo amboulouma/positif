@@ -5,6 +5,7 @@
  */
 package aaa.dasi.positif.DAO;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Client;
+import java.util.Date;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 /**
@@ -31,4 +32,10 @@ public class EmployeDAO extends JpaUtil{
             return client;
         }     
     }  
+
+    public static void persistDateDebutConversation(Date dateDebut) {
+        
+    }
+    
+    
 }

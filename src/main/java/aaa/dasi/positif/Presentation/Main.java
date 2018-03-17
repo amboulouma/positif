@@ -106,19 +106,19 @@ public class Main {
         
         System.out.println();
         System.out.println("[Employe] Demonstation du service : "
-                + "demarerConversation :");
+                + "demarerVoyance :");
         System.out.println();
         //ServiceEmploye.demarerConversation(idClient, idEmploye, idMedium);
         System.out.println();
         
         System.out.println();
-        System.out.println("[Employe] Demonstation du service : cloturerConversationAvecCommentaire :");
+        System.out.println("[Employe] Demonstation du service : cloturerVoyanceAvecCommentaire :");
         System.out.println();
         //ServiceEmploye.cloturerConversationAvecCommentaire(commentaire);
         System.out.println();
         
         System.out.println();
-        System.out.println("[Employe] Demonstation du service : cloturerConversationSansCommentaire :");
+        System.out.println("[Employe] Demonstation du service : cloturerVoyanceSansCommentaire :");
         System.out.println();
         //ServiceEmploye.cloturerConversationSansCommentaire();
         System.out.println();
