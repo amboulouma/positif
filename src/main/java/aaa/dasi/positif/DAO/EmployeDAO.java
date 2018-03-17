@@ -64,7 +64,7 @@ public class EmployeDAO extends JpaUtil{
     }
 
     public static void mergeCommentaire(Voyance voyance, String commentaire) {
-         try{
+        try{
             EntityManager em = JpaUtil.obtenirEntityManager();
             voyance.setCommentaire(commentaire);
             em.merge(voyance);
@@ -74,5 +74,18 @@ public class EmployeDAO extends JpaUtil{
             System.err.println("[EmployeDAO] Ajout du commentaire "
                     + "de la voyance non réussi.");
         }
+    }
+
+    public static void mergeDisponibilite(Employe employe) {
+        try{
+            EntityManager em = JpaUtil.obtenirEntityManager();
+            employe.setDisponible(true);
+            em.merge(employe);
+            System.out.println("[EmployeDAO] Mise à jour de la disponibilite "
+                    + "réussi.");
+        }catch(Exception ex) {
+            System.err.println("[EmployeDAO] Mise à jour de la disponibilite "
+                    + "non réussi.");
+        }  
     }
 }

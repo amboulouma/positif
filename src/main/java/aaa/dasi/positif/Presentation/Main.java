@@ -133,14 +133,14 @@ public class Main {
                 + "String commentaire) :");
         System.out.println();
         String commentaire = "Un commentaire pour tester.";
-        ServiceEmploye.cloturerVoyanceAvecCommentaire(voyance, commentaire);
+        ServiceEmploye.cloturerVoyanceAvecCommentaire(voyance, commentaire, employe);
         System.out.println();
         
         System.out.println();
         System.out.println("[Employe] Demonstation du service - static void "
                 + "cloturerVoyanceSansCommentaire(Voyance voyance) :");
         System.out.println();
-        //ServiceEmploye.cloturerVoyanceSansCommentaire(voyance);
+        //ServiceEmploye.cloturerVoyanceSansCommentaire(voyance, employe);
         System.out.println();
         
         System.out.println();

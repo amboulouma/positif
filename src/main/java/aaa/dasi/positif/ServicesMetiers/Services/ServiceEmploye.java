@@ -9,6 +9,7 @@ import aaa.dasi.positif.DAO.AdministrateurDAO;
 import aaa.dasi.positif.DAO.EmployeDAO;
 import aaa.dasi.positif.DAO.JpaUtil;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Client;
+import aaa.dasi.positif.ServicesMetiers.Modeles.Employe;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Voyance;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +39,7 @@ public class ServiceEmploye {
     }
     
     
-    public static void cloturerVoyanceAvecCommentaire(Voyance voyance, String commentaire){
+    public static void cloturerVoyanceAvecCommentaire(Voyance voyance, String commentaire, Employe employe){
         System.out.println("[ServiceEmploye] Service cloturer la voyance "
                 + "avec le client avec commentaire de l'employé lancé.");
         Date dateFin = new Date();
@@ -46,17 +47,19 @@ public class ServiceEmploye {
         JpaUtil.ouvrirTransaction();
         EmployeDAO.mergeDateFinVoyance(voyance, dateFin);
         EmployeDAO.mergeCommentaire(voyance, commentaire);
+        EmployeDAO.mergeDisponibilite(employe);
         JpaUtil.validerTransaction();
     }
     
     
-    public static void cloturerVoyanceSansCommentaire(Voyance voyance){
+    public static void cloturerVoyanceSansCommentaire(Voyance voyance, Employe employe){
         System.out.println("[ServiceEmploye] Service cloturer la voyance "
                 + "avec le client sans commentaire de l'employé lancé.");
         Date dateFin = new Date();
         JpaUtil.creerEntityManager();
         JpaUtil.ouvrirTransaction();
         EmployeDAO.mergeDateFinVoyance(voyance, dateFin);
+        EmployeDAO.mergeDisponibilite(employe);
         JpaUtil.validerTransaction();
     }
     
