@@ -7,6 +7,8 @@ package aaa.dasi.positif.ServicesMetiers.Services;
 
 import aaa.dasi.positif.DAO.EmployeDAO;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Client;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -21,4 +23,31 @@ public class ServiceEmploye {
     }
     
     
+    public static void demarerConversation(Long idClient, Long idEmploye, Long idMedium){
+        
+    }
+    
+    
+    public static void cloturerConversationAvecCommentaire(String commentaire){
+        
+    }
+    
+    
+    public static void cloturerConversationSansCommentaire(){
+        
+    }
+    
+    
+    public static String visualiserStatistiquesMedium(){
+        String statistiqueMedium = "";
+        
+        return statistiqueMedium;
+    }
+    
+    
+    public static List<String> genererPredictions(int amour, int sante, int travail){
+        List<String> predictions = new ArrayList<String>() ;
+        
+        return predictions;
+    }
 }

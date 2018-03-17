@@ -20,14 +20,28 @@ import javax.persistence.Query;
  */
 public class ClientDAO extends JpaUtil{
       
-    public static void persistClient(Client client) {
+    public static String persistClient(Client client) {
+        String mailDeConfirmation = "Expediteur : contact@posit.if\n"
+                + "Pour : " + client.getMail() + "\n"
+                + "Sujet : Bienvenue chez POSIT'IF\n\n";
+                
         try{
             EntityManager em = JpaUtil.obtenirEntityManager();
             em.persist(client);
             System.out.println("[ClientDAO] persistence du client réussie.");
+            mailDeConfirmation += "Bonjour " + client.getPrenom() + ",\n"
+                + "Nous vous confirmons votre inscription au "
+                + "service POSIT'IF. Votre numéro de client est " 
+                + client.getIdClient() + ".\n";
         }catch (Exception ex){
             System.err.println("[ClientDAO] Erreur lors de la persistance du "
                     + "client.");
+            mailDeConfirmation += "Bonjour " + client.getPrenom() + ",\n"
+                    +"Votre inscription au service POSIT'IF a "
+                    + "malencoutreusement échoué... Merci de recommencer "
+                    + "ultérieurement.\n";
+        }finally{
+            return mailDeConfirmation;
         }
     }
     
@@ -48,7 +62,6 @@ public class ClientDAO extends JpaUtil{
     public static boolean trouverMail(String paramMail){
         boolean resultat = false;
         try{
-            
             EntityManager em = JpaUtil.obtenirEntityManager();
             Query query = em.createQuery("select c from Client c "
                     + "where c.mail= :mail");

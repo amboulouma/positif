@@ -19,20 +19,24 @@ import java.util.List;
  */
 public class ServiceClient{
     
-    public static void inscriptionClient(Client client){
+    public static String inscriptionClient(Client client){
         System.out.println("[ServiceClient] Service inscription du client "
                 + "lancé.");
+        String mailDeConfirmation;
         JpaUtil.creerEntityManager();
         JpaUtil.ouvrirTransaction();
-        ClientDAO.persistClient(client);
+        mailDeConfirmation = ClientDAO.persistClient(client);
         JpaUtil.validerTransaction();
+        return mailDeConfirmation;
     }
+    
     
     public static boolean connexionClient(String mail){
         System.out.println("[ServiceClient] Service connexion du client "
                 + "lancé.");
         return ClientDAO.trouverMail(mail);
     }
+    
     
     public static Voyance creerVoyance(Medium medium, Client client){
         System.out.println("[ServiceClient] Service de la création de la "
@@ -45,6 +49,7 @@ public class ServiceClient{
         return voyance;
     }
     
+    
     public static List<Medium> genererMediums(){
         System.out.println("[ServiceClient] Service de générations des mediums "
                 + "pour client lancé.");
@@ -52,6 +57,7 @@ public class ServiceClient{
         mediums = ClientDAO.getListMediums();
         return mediums;
     }
+    
     
     public static List<Voyance> genererHistoriqueVoyances(Long idClient){
         System.out.println("[ServiceClient] Service de génération de "

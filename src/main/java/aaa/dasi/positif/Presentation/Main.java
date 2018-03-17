@@ -64,7 +64,7 @@ public class Main {
         System.out.println("[Client] Demonstation du service : "
                 + "inscriptionClient :");
         System.out.println();
-        ServiceClient.inscriptionClient(client);
+        System.out.println(ServiceClient.inscriptionClient(client));
         System.out.println();
         
         System.out.println();
@@ -105,7 +105,8 @@ public class Main {
         System.out.println();
         
         System.out.println();
-        System.out.println("[Employe] Demonstation du service : demarerConversation :");
+        System.out.println("[Employe] Demonstation du service : "
+                + "demarerConversation :");
         System.out.println();
         //ServiceEmploye.demarerConversation(idClient, idEmploye, idMedium);
         System.out.println();
@@ -129,9 +130,9 @@ public class Main {
         System.out.println();
         
         System.out.println();
-        System.out.println("[Employe] Demonstation du service : genererPrediction :");
+        System.out.println("[Employe] Demonstation du service : genererPredictions :");
         System.out.println();
-        //ServiceEmploye.genererPrediction(amour, sante, travail);
+        //ServiceEmploye.genererPredictions(amour, sante, travail);
         System.out.println();
         
         JpaUtil.destroy();
