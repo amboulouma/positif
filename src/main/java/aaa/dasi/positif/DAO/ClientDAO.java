@@ -11,9 +11,7 @@ import aaa.dasi.positif.ServicesMetiers.Modeles.Voyance;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 /**
@@ -22,54 +20,83 @@ import javax.persistence.Query;
  */
 public class ClientDAO extends JpaUtil{
       
-    public static void persist(Client client) {
+    public static void persistClient(Client client) {
         try{
             EntityManager em = JpaUtil.obtenirEntityManager();
             em.persist(client);
+            System.out.println("[ClientDAO] persistence du client réussie.");
         }catch (Exception ex){
-            System.err.println("Erreur lors de la persistance du client.");
+            System.err.println("[ClientDAO] Erreur lors de la persistance du "
+                    + "client.");
         }
     }
- 
-    /*
-    retourne vrai si l'adresse mail existe dans bd
-    => client connecté
-    */
-    public static boolean trouverMail(String paramMail){
-        boolean resultat = false;
-        try{
-            
-            EntityManager em = JpaUtil.obtenirEntityManager();
-            Query query = em.createQuery("select c from Client c where c.mail= :mail");
-            query.setParameter("mail", paramMail);
-            Client client = (Client) query.getSingleResult();
-            resultat = true; 
-        }catch(NoResultException nRE){
-            System.err.println("Vous n'êtes pas encore inscrit dans notre plateforme");
-        }finally{
-            return resultat;
-        }     
-    }
+    
     
     public static void persistVoyance(Voyance voyance) {
         try{
             EntityManager em = JpaUtil.obtenirEntityManager();
             em.persist(voyance);
+            System.out.println("[ClientDAO] persistence de la voyance "
+                    + "réussie.");
         }catch(Exception ex) {
-            System.err.println("Erreur lors de la persistance de la voyance.");
+            System.err.println("[ClientDAO] Erreur lors de la persistance de "
+                    + "la voyance.");
         }
     }
     
-    static List<Medium> getListMediums(){
+    
+    public static boolean trouverMail(String paramMail){
+        boolean resultat = false;
+        try{
+            
+            EntityManager em = JpaUtil.obtenirEntityManager();
+            Query query = em.createQuery("select c from Client c "
+                    + "where c.mail= :mail");
+            query.setParameter("mail", paramMail);
+            Client client = (Client) query.getSingleResult();
+            System.out.println("[ClientDAO] le client se trouve dans "
+                    + "la base de données.");
+            resultat = true; 
+        }catch(NoResultException nRE){
+            System.err.println("[ClientDAO] le client ne se trouve pas dans "
+                    + "la base de données.");
+        }finally{
+            return resultat;
+        }     
+    }
+    
+    
+    public static List<Medium> getListMediums(){
         List<Medium> mediums = new ArrayList<Medium>() ;
         try{
             EntityManager em = JpaUtil.obtenirEntityManager();
             Query query = em.createQuery("select m from Medium m");
             mediums = (List<Medium>) query.getResultList();
+            System.out.println("[ClientDAO] Generation de la liste "
+                    + "des mediums réussie.");
         }catch(NoResultException nRE){
-            System.err.println("Aucun médium n'est enregistré.");
+            System.err.println("[ClientDAO] Generation de la liste des "
+                    + "mediums non réussie.");
         }finally{
             return mediums;
+        }
+    }  
+   
+    public static List<Voyance> getListVoyances(Long idClient){
+        List<Voyance> voyances = new ArrayList<Voyance>() ;
+        try{
+            EntityManager em = JpaUtil.obtenirEntityManager();
+            Query query = em.createQuery("select v from Voyance v "
+                    + "where v.client.idClient = :paramID");
+            query.setParameter("paramID", idClient);
+            System.out.println("[ClientDAO] Generation de la liste "
+                    + "des voyances réussie.");
+            voyances = (List<Voyance>) query.getResultList();
+        }catch(Exception e){
+            System.err.println("[ClientDAO] Generation de la liste "
+                    + "des voyances non réussie.");
+        }finally{
+            return voyances;
         }
     }
 }

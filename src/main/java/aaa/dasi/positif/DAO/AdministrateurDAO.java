@@ -6,12 +6,7 @@
 package aaa.dasi.positif.DAO;
 
 import aaa.dasi.positif.ServicesMetiers.Modeles.Medium;
-import java.io.Serializable;
-import javax.persistence.Entity;
 import javax.persistence.EntityManager;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 /**
  *
@@ -23,8 +18,11 @@ public class AdministrateurDAO extends JpaUtil{
         try{
             EntityManager em = JpaUtil.obtenirEntityManager();
             em.persist(medium);
+            System.out.println("[AdministrateurDAO] Persistance du "
+                    + "medium réussie.");
         }catch(Exception ex) {
-            System.err.println("Erreur lors de la persistance!");
+            System.err.println("[AdministrateurDAO] Erreur lors de "
+                    + "la persistance du medium.");
         }
     }
     

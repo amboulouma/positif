@@ -7,15 +7,11 @@ package aaa.dasi.positif.ServicesMetiers.Services;
 
 import aaa.dasi.positif.DAO.ClientDAO;
 import aaa.dasi.positif.DAO.JpaUtil;
-import aaa.dasi.positif.ServicesMetiers.Modeles.AdressePostale;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Client;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Medium;
-import aaa.dasi.positif.ServicesMetiers.Modeles.ProfilAstrologique;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Voyance;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import javax.persistence.EntityManager;
 
 /**
  *
@@ -24,23 +20,23 @@ import javax.persistence.EntityManager;
 public class ServiceClient{
     
     public static void inscriptionClient(Client client){
+        System.out.println("[ServiceClient] Service inscription du client "
+                + "lancé.");
         JpaUtil.creerEntityManager();
         JpaUtil.ouvrirTransaction();
-        ClientDAO.persist(client);
+        ClientDAO.persistClient(client);
         JpaUtil.validerTransaction();
     }
     
     public static boolean connexionClient(String mail){
+        System.out.println("[ServiceClient] Service connexion du client "
+                + "lancé.");
         return ClientDAO.trouverMail(mail);
     }
     
-    public static List<Voyance> genererMediums(){
-        List<Voyance> ArrayList = null;
-        List<Voyance> Voyance = null;
-        return ArrayList;
-    }
-    
     public static Voyance creerVoyance(Medium medium, Client client){
+        System.out.println("[ServiceClient] Service de la création de la "
+                + "voyance pour le client lancé.");
         JpaUtil.creerEntityManager();
         JpaUtil.ouvrirTransaction();
         Voyance voyance = new Voyance (medium, client);
@@ -49,9 +45,19 @@ public class ServiceClient{
         return voyance;
     }
     
-    public static List<Voyance> genererHistoriqueVoyances(Client client){
-        List<Voyance> ArrayList = null;
-        List<Voyance> Voyance = null;
-        return ArrayList;
+    public static List<Medium> genererMediums(){
+        System.out.println("[ServiceClient] Service de générations des mediums "
+                + "pour client lancé.");
+        List<Medium> mediums = new ArrayList<Medium>() ;
+        mediums = ClientDAO.getListMediums();
+        return mediums;
+    }
+    
+    public static List<Voyance> genererHistoriqueVoyances(Long idClient){
+        System.out.println("[ServiceClient] Service de génération de "
+                + "l'historique des voyances du client lancé.");
+        List<Voyance> voyances = new ArrayList<Voyance>() ;
+        voyances = ClientDAO.getListVoyances(idClient);
+        return voyances;
     }
 }

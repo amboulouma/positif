@@ -21,6 +21,8 @@ import javax.persistence.Id;
 public class ServiceAdministrateur {
 
     public static void ajoutMedium(Medium medium){
+        System.out.println("[ServiceAdministrateur] Service inscription du "
+                + "medium lancé.");
         JpaUtil.creerEntityManager();
         JpaUtil.ouvrirTransaction();
         AdministrateurDAO.persistMedium(medium);
