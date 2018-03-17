@@ -33,18 +33,34 @@ public class Employe implements Serializable {
     private List<Voyance> voyance;
     @ManyToMany
     private List<Medium> medium;
+    private boolean disponible = true;
 
     public Employe() {
     }
 
-    public Employe(Long idEmploye, String nom, String prenom, List<Voyance> voyance, List<Medium> medium) {
+    public Employe(Long idEmploye, String nom, String prenom, List<Voyance> voyance, List<Medium> medium, boolean disponible) {
         this.idEmploye = idEmploye;
         this.nom = nom;
         this.prenom = prenom;
         this.voyance = voyance;
         this.medium = medium;
+        this.disponible = disponible;
     }
 
+    public Employe(String nom, String prenom) {
+        this.nom = nom;
+        this.prenom = prenom;
+    }
+
+    public boolean isDisponible() {
+        return disponible;
+    }
+
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
+    }
+    
+    
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }

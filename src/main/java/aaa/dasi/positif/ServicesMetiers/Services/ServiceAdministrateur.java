@@ -7,15 +7,16 @@ package aaa.dasi.positif.ServicesMetiers.Services;
 
 import aaa.dasi.positif.DAO.AdministrateurDAO;
 import aaa.dasi.positif.DAO.JpaUtil;
+import aaa.dasi.positif.ServicesMetiers.Modeles.Client;
+import aaa.dasi.positif.ServicesMetiers.Modeles.Employe;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Medium;
-import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import aaa.dasi.positif.ServicesMetiers.Modeles.Voyance;
 
 /**
  *
+ * @author amine
+ * @author amine
+ * @author amine
  * @author amine
  */
 public class ServiceAdministrateur {
@@ -29,5 +30,26 @@ public class ServiceAdministrateur {
         JpaUtil.validerTransaction();
     }
     
+    public static void ajoutEmploye(Employe employe){
+        System.out.println("[ServiceAdministrateur] Service inscription du "
+                + "medium lancé.");
+        JpaUtil.creerEntityManager();
+        JpaUtil.ouvrirTransaction();
+        AdministrateurDAO.persistEmploye(employe);
+        JpaUtil.validerTransaction();
+    }
     
+    public static Voyance affectationVoyance(Medium medium, 
+            Client client, Voyance voyance){
+        System.out.println("[ServiceAdministrateur] Service d'affectation de "
+                + "voyance lancé.");
+        JpaUtil.creerEntityManager();
+        JpaUtil.ouvrirTransaction();
+        Employe employe = AdministrateurDAO.trouverEmployeDisponible();
+        String notificationEmploye = AdministrateurDAO.modifierVoyance(voyance, 
+                medium, client, employe);
+        JpaUtil.validerTransaction();
+        System.out.println("[Notification Employe] " + notificationEmploye);
+        return voyance;
+    }
 }

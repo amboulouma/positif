@@ -45,7 +45,6 @@ public class ClientDAO extends JpaUtil{
         }
     }
     
-    
     public static void persistVoyance(Voyance voyance) {
         try{
             EntityManager em = JpaUtil.obtenirEntityManager();
@@ -57,6 +56,7 @@ public class ClientDAO extends JpaUtil{
                     + "la voyance.");
         }
     }
+
     
     
     public static boolean trouverMail(String paramMail){
@@ -66,7 +66,6 @@ public class ClientDAO extends JpaUtil{
             Query query = em.createQuery("select c from Client c "
                     + "where c.mail= :mail");
             query.setParameter("mail", paramMail);
-            Client client = (Client) query.getSingleResult();
             System.out.println("[ClientDAO] le client se trouve dans "
                     + "la base de données.");
             resultat = true; 

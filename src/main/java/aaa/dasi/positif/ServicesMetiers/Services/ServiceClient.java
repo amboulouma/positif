@@ -5,6 +5,7 @@
  */
 package aaa.dasi.positif.ServicesMetiers.Services;
 
+import aaa.dasi.positif.DAO.AdministrateurDAO;
 import aaa.dasi.positif.DAO.ClientDAO;
 import aaa.dasi.positif.DAO.JpaUtil;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Client;
@@ -38,16 +39,18 @@ public class ServiceClient{
     }
     
     
-    public static Voyance demanderVoyance(Medium medium, Client client){
+        public static Voyance demanderVoyance(Medium medium, Client client){
         System.out.println("[ServiceClient] Service de la création de la "
                 + "voyance pour le client lancé.");
         JpaUtil.creerEntityManager();
         JpaUtil.ouvrirTransaction();
-        Voyance voyance = new Voyance (medium, client);
+        Voyance voyance = new Voyance(medium, client);
         ClientDAO.persistVoyance(voyance);
         JpaUtil.validerTransaction();
+        ServiceAdministrateur.affectationVoyance(medium, client, voyance);
         return voyance;
     }
+
     
     
     public static List<Medium> genererMediums(){

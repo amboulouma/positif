@@ -8,6 +8,7 @@ package aaa.dasi.positif.Presentation;
 import aaa.dasi.positif.DAO.JpaUtil;
 import aaa.dasi.positif.ServicesMetiers.Modeles.AdressePostale;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Client;
+import aaa.dasi.positif.ServicesMetiers.Modeles.Employe;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Medium;
 import aaa.dasi.positif.ServicesMetiers.Modeles.ProfilAstrologique;
 import aaa.dasi.positif.ServicesMetiers.Services.ServiceAdministrateur;
@@ -44,7 +45,8 @@ public class Main {
                 "06 12 03 07 78",
                 "tom@martin.gs",
                 profilAstrologique);
-        Medium mediumMark = new Medium("Mark", "Biographie de Mark");
+        Medium medium = new Medium("Mark", "Biographie de Mark");
+        Employe employe = new Employe("Kevin", "Musk");
         
         System.out.println();
         System.out.println("[Administrateur] Demonstation du service : "
@@ -55,9 +57,16 @@ public class Main {
         
         System.out.println();
         System.out.println("[Administrateur] Demonstation du service : "
+                + "ajoutEmploye :");
+        System.out.println();
+        ServiceAdministrateur.ajoutEmploye(employe);
+        System.out.println();
+        
+        System.out.println();
+        System.out.println("[Administrateur] Demonstation du service : "
                 + "ajoutMedium :");
         System.out.println();
-        ServiceAdministrateur.ajoutMedium(mediumMark);
+        ServiceAdministrateur.ajoutMedium(medium);
         System.out.println();
         
         System.out.println();
@@ -84,9 +93,9 @@ public class Main {
         
         System.out.println();
         System.out.println("[Client] Demonstation du service : "
-                + "creerVoyance :");
+                + "demanderVoyance :");
         System.out.println();
-        System.out.println(ServiceClient.demanderVoyance(mediumMark, client));
+        System.out.println(ServiceClient.demanderVoyance(medium, client));
         System.out.println();
         
         System.out.println();
