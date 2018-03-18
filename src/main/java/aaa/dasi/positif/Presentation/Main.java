@@ -155,10 +155,10 @@ public class Main {
         
         System.out.println();
         System.out.println("[Employe] Demonstation du service - static "
-                + "List<String> genererPredictions(int amour, int sante, "
-                + "int travail) :");
+                + "List<String> genererPredictionsClient(Client client, "
+                + "int amour, int sante, int travail) : \n");
         System.out.println();
-        //ServiceEmploye.genererPredictions(amour, sante, travail);
+        //ServiceEmploye.genererPredictionsClient(amour, sante, travail);
         System.out.println();
         
         JpaUtil.destroy();

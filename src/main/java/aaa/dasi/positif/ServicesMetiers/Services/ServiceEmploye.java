@@ -68,15 +68,19 @@ public class ServiceEmploye {
     }
     
     
-    public static String visualiserStatistiquesMedium(){
+    public static String genererStatistiquesMedium(){
+        System.out.println("[ServiceEmploye] Service générer les statistiques "
+                + "d'un medium de l'employé lancé.");
         String statistiqueMedium = "";
         
         return statistiqueMedium;
     }
     
     
-    public static List<String> genererPredictions(int amour, int sante, 
+    public static List<String> genererPredictionsClient(Client client, int amour, int sante, 
             int travail){
+        System.out.println("[ServiceEmploye] Service générer des prédiction "
+                + "pour le client de l'employe est lancé.");
         List<String> predictions = new ArrayList<String>() ;
         
         return predictions;
