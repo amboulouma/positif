@@ -23,8 +23,8 @@ import java.util.Date;
 
 public class ServiceEmploye {
     
-    public static Client retournerClient(Long idClient){
-        System.out.println("[ServiceEmploye] Service retourner client de "
+    public static Client retrouverClient(Long idClient){
+        System.out.println("[ServiceEmploye] Service retrouver client de "
                 + "l'employé lancé.");
         return EmployeDAO.trouverClient(idClient);
     }

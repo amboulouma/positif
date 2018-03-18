@@ -117,9 +117,9 @@ public class Main {
         
         System.out.println();
         System.out.println("[Employe] Demonstation du service - "
-                + "static Client retournerClient(Long idClient) :");
+                + "static Client retrouverClient(Long idClient) :");
         System.out.println();
-        System.out.println(ServiceEmploye.retournerClient(idClient));
+        System.out.println(ServiceEmploye.retrouverClient(idClient));
         System.out.println();
         
         System.out.println();
