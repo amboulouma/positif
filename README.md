@@ -33,8 +33,8 @@ cd positif
 
 ## La documentation
 
-[La liste des services](./doc/Liste_des_services.md)
-[La liste des DAOs](./doc/Liste_des_DAOs.md)
+* [La liste des services](./doc/Liste_des_services.md)
+* [La liste des DAOs](./doc/Liste_des_DAOs.md)
 
 ## Auteurs
 
