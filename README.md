@@ -4,9 +4,9 @@ Un cabinet de voyance conversationnelle par messagerie instantanée
 
 ## Technologies
 
-```Java Development Kit 8```
-```JPA 2```
-```Maven ```
+* ```Java Development Kit 8```
+* ```JPA 2```
+* ```Maven ```
 
 ## Cloner le projet
 
@@ -38,6 +38,6 @@ cd positif
 
 ## Auteurs
 
-__BOULOUMA Amine Mohamed__
-__EL OMARI ALAOUI Abdelaziz__
-__SAUVESTRE Agathe__
+* __BOULOUMA Amine Mohamed__
+* __EL OMARI ALAOUI Abdelaziz__
+* __SAUVESTRE Agathe__
