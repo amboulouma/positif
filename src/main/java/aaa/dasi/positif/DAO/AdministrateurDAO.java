@@ -15,7 +15,6 @@ import aaa.dasi.positif.ServicesMetiers.Modeles.Client;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Employe;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Medium;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Voyance;
-import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;

@@ -1,13 +1,13 @@
 # Liste des services
 
-La liste des services métiers de POSIT'IF
+La liste des services métiers de l'application POSIT'IF
 
 ## Services Administrateur
 
 La liste des services métiers Administrateur de POSIT'IF
 
 ```static void initPositif();```
-Permet d'initialiser la plateform POSIT'IF
+Permet d'initialiser l'application POSIT'IF
 
 ```static void ajoutEmploye(Employe employe);```
 Permet d'ajouter un employé à POSIT'IF
