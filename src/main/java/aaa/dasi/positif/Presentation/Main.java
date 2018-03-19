@@ -148,9 +148,9 @@ public class Main {
         
         System.out.println();
         System.out.println("[Employe] Demonstation du service - static String "
-                + "visualiserStatistiquesMedium() :");
+                + "genererTableauBord() :");
         System.out.println();
-        //ServiceEmploye.visualiserStatistiquesMedium();
+        System.out.println(ServiceEmploye.genererTableauBord());
         System.out.println();
         
         System.out.println();
