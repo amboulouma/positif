@@ -6,7 +6,7 @@ Un cabinet de voyance conversationnelle par messagerie instantanée
 
 ```Java Development Kit 8```
 ```JPA 2```
-```Maven```
+```Maven ```
 
 ## Cloner le projet
 
