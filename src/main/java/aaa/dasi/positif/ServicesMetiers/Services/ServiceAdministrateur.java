@@ -48,7 +48,8 @@ public class ServiceAdministrateur {
                 + "voyance lancé.");
         JpaUtil.creerEntityManager();
         JpaUtil.ouvrirTransaction();
-        Employe employe = AdministrateurDAO.trouverEmployeDisponible();
+        Employe employe = 
+                AdministrateurDAO.trouverEmployeAvecAffectationsMinimales();
         String notificationEmploye = AdministrateurDAO.modifierVoyance(voyance, 
                 medium, client, employe);
         JpaUtil.validerTransaction();

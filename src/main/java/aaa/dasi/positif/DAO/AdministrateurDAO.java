@@ -46,19 +46,19 @@ public class AdministrateurDAO extends JpaUtil{
     }
     
     
-    public static Employe trouverEmployeDisponible(){
+    public static Employe trouverEmployeAvecAffectationsMinimales(){
         Employe employe = new Employe();
         try{
             EntityManager em = JpaUtil.obtenirEntityManager();
-            Query query = em.createQuery("select e from Employe e "
-                        + "where e.disponible= :disponible");
-            query.setParameter("disponible", true);
+            Query query = em.createQuery("select distinct e from Employe e "
+                    + "where e.nombreAffectations = (select "
+                    + "MIN(e.nombreAffectations) from Employe e)");
             employe = (Employe)query.getSingleResult();
-            System.out.println("[AdministrateurDAO] Employé disponible "
-                    + "trouvé.");
+            System.out.println("[AdministrateurDAO] Employé avec affectations "
+                    + "minimales trouvé.");
         }catch(NoResultException nRE){
-            System.err.println("[AdministrateurDAO] Aucun employé disponible "
-                    + "trouvé.");
+            System.err.println("[AdministrateurDAO] Employé avec affectations "
+                    + "minimales non trouvé.");
         }
         return employe;
     }
@@ -66,6 +66,8 @@ public class AdministrateurDAO extends JpaUtil{
     public static String modifierVoyance(Voyance voyance, Medium medium, 
             Client client, Employe employe) {
         String notificationEmploye = "";
+        int nombreAffectationsEmploye = employe.getNombreAffectations();
+        int nombreAffectationsMedium = medium.getNombreAffectations();
         try{
             notificationEmploye += "Voyance demandée pour le client " 
                     + client.getNom() + " " + client.getPrenom() + " (#" 
@@ -73,7 +75,11 @@ public class AdministrateurDAO extends JpaUtil{
             EntityManager em = JpaUtil.obtenirEntityManager();
             voyance.setEmploye(employe);
             voyance.setMedium(medium);
-            employe.setDisponible(false);
+            nombreAffectationsEmploye++;
+            nombreAffectationsMedium++;
+            em.merge(voyance);
+            EmployeDAO.mergeNombreAffectations(employe, medium, 
+                    nombreAffectationsEmploye, nombreAffectationsMedium);
             System.out.println("[AdministrateurDAO] modification de la voyance "
                     + "réussie.");
         }catch(Exception ex) {

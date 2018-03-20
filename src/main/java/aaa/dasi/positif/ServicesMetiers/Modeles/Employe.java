@@ -35,18 +35,19 @@ public class Employe implements Serializable {
     private List<Voyance> voyance;
     @ManyToMany
     private List<Medium> medium;
-    private boolean disponible = true;
+    private int nombreAffectations;
 
     public Employe() {
     }
 
-    public Employe(Long idEmploye, String nom, String prenom, List<Voyance> voyance, List<Medium> medium, boolean disponible) {
+    public Employe(Long idEmploye, String nom, String prenom, 
+            List<Voyance> voyance, List<Medium> medium) {
         this.idEmploye = idEmploye;
         this.nom = nom;
         this.prenom = prenom;
         this.voyance = voyance;
         this.medium = medium;
-        this.disponible = disponible;
+        this.nombreAffectations = 0;
     }
 
     public Employe(String nom, String prenom) {
@@ -54,12 +55,12 @@ public class Employe implements Serializable {
         this.prenom = prenom;
     }
 
-    public boolean isDisponible() {
-        return disponible;
+    public int getNombreAffectations() {
+        return this.nombreAffectations;
     }
 
-    public void setDisponible(boolean disponible) {
-        this.disponible = disponible;
+    public void setNombreAffectations(int nombreAffectations) {
+        this.nombreAffectations = nombreAffectations;
     }
     
     
@@ -148,9 +149,16 @@ public class Employe implements Serializable {
         return true;
     }
 
+    
+    public String toStringMax() {
+        return "Employe{" + "idEmploye=" + idEmploye + ", nom=" + nom 
+                + ", prenom=" + prenom + ", voyance=" + voyance + ", medium=" 
+                + medium + ", nombre d'affectations =" + nombreAffectations + '}';
+    }
+    
     @Override
     public String toString() {
-        return "Employe{" + "idEmploye=" + idEmploye + ", nom=" + nom + ", prenom=" + prenom + ", voyance=" + voyance + ", medium=" + medium + '}';
+        return "Employe{" + "nom=" + nom + ", prenom=" + prenom 
+                + ", nombre d'affectations =" + nombreAffectations + '}';
     }
-
 }
