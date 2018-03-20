@@ -12,7 +12,9 @@ package aaa.dasi.positif.DAO;
 
 import aaa.dasi.positif.ServicesMetiers.Modeles.Client;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Medium;
+import aaa.dasi.positif.ServicesMetiers.Modeles.ProfilAstrologique;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Voyance;
+import aaa.dasi.positif.ServicesMetiers.Services.util.AstroTest;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -28,6 +30,17 @@ public class ClientDAO extends JpaUtil{
                 + "Sujet : Bienvenue chez POSIT'IF\n\n";
         try{
             EntityManager em = JpaUtil.obtenirEntityManager();
+            String api = "ASTRO-02-M0lGLURBU0ktQVNUUk8tQjAy";
+            List<String> profilAstrologique = new ArrayList<String>();
+            AstroTest astro = new AstroTest(api);
+            profilAstrologique = astro.getProfil(client.getPrenom(), 
+                    client.getDateNaissance());
+            ProfilAstrologique profilCalcule = new ProfilAstrologique();
+            profilCalcule.setSigneZodiaque(profilAstrologique.get(0));
+            profilCalcule.setSigneAstrologique(profilAstrologique.get(1));
+            profilCalcule.setCouleurPorteBonheur(profilAstrologique.get(2));
+            profilCalcule.setAnimalTotem(profilAstrologique.get(3));
+            client.setProfilAstrologique(profilCalcule);
             em.persist(client);
             System.out.println("[ClientDAO] persistence du client réussie.");
             mailDeConfirmation += "Bonjour " + client.getPrenom() + ",\n"

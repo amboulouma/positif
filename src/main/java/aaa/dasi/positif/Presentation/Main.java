@@ -21,11 +21,12 @@ import aaa.dasi.positif.ServicesMetiers.Modeles.Voyance;
 import aaa.dasi.positif.ServicesMetiers.Services.ServiceAdministrateur;
 import aaa.dasi.positif.ServicesMetiers.Services.ServiceClient;
 import aaa.dasi.positif.ServicesMetiers.Services.ServiceEmploye;
+import java.io.IOException;
 import java.util.Date;
 
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException{
         
         JpaUtil.init();
         
@@ -158,7 +159,7 @@ public class Main {
                 + "List<String> genererPredictionsClient(Client client, "
                 + "int amour, int sante, int travail) : \n");
         System.out.println();
-        //ServiceEmploye.genererPredictionsClient(amour, sante, travail);
+        System.out.println(ServiceEmploye.genererPredictionsClient(client, 2, 1, 3).toString());
         System.out.println();
         
         JpaUtil.destroy();

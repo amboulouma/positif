@@ -12,10 +12,10 @@
     <class>aaa.dasi.positif.DAO.AdministrateurDAO</class>
     <class>aaa.dasi.positif.ServicesMetiers.Services.ServiceAdministrateur</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/positif"/>
-      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/positifDB"/>
+      <property name="javax.persistence.jdbc.user" value="aaa"/>
       <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
-      <property name="javax.persistence.jdbc.password" value="root"/>
+      <property name="javax.persistence.jdbc.password" value="aaa"/>
       <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
     </properties>
   </persistence-unit>

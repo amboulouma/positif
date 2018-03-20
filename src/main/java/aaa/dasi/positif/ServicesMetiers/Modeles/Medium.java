@@ -30,6 +30,8 @@ public class Medium implements Serializable {
     private String bio;
     @ManyToMany
     private List<Employe> employe;
+    private int nombreAffectations;
+    
     public Medium(String nom, String bio) {
         this.nom = nom;
         this.bio = bio;
@@ -40,6 +42,7 @@ public class Medium implements Serializable {
         this.nom = nom;
         this.bio = bio;
         this.employe = employe;
+        this.nombreAffectations = 0;
     }
 
     public Medium() {
@@ -70,6 +73,14 @@ public class Medium implements Serializable {
 
     public List<Employe> getEmploye() {
         return employe;
+    }
+    
+    public int getNombreAffectations() {
+        return this.nombreAffectations;
+    }
+
+    public void setNombreAffectations(int nombreAffectations) {
+        this.nombreAffectations = nombreAffectations;
     }
 
     public void setIdMedium(Long idMedium) {
