@@ -159,7 +159,8 @@ public class Main {
                 + "List<String> genererPredictionsClient(Client client, "
                 + "int amour, int sante, int travail) : \n");
         System.out.println();
-        System.out.println(ServiceEmploye.genererPredictionsClient(client, 2, 1, 3).toString());
+        System.out.println(ServiceEmploye.genererPredictionsClient(client, 2, 
+                    1, 3));
         System.out.println();
         
         JpaUtil.destroy();
