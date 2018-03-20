@@ -18,6 +18,7 @@ import aaa.dasi.positif.ServicesMetiers.Modeles.Employe;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Medium;
 import aaa.dasi.positif.ServicesMetiers.Modeles.ProfilAstrologique;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Voyance;
+import aaa.dasi.positif.ServicesMetiers.Modeles.Voyant;
 import aaa.dasi.positif.ServicesMetiers.Services.ServiceAdministrateur;
 import aaa.dasi.positif.ServicesMetiers.Services.ServiceClient;
 import aaa.dasi.positif.ServicesMetiers.Services.ServiceEmploye;
@@ -49,14 +50,17 @@ public class Main {
                 "06 12 03 07 78",
                 "tom@martin.gs",
                 profilAstrologique);
-        Medium medium = new Medium("Mark", "Biographie de Mark");
+        Medium medium = new Voyant("Boule de Cristal", "Gwenaël", 
+                "Spécialiste des grandes conversations au-delà de "
+                        + "TOUTES les frontières.");
+
         Employe employe = new Employe("Kevin", "Musk");
         
         System.out.println();
         System.out.println("[Administrateur] Initalisation de la plateforme "
                 + "avec le service - static void initpositif() :");
         System.out.println();
-//        ServiceAdministrateur.initPositif();
+        //ServiceAdministrateur.initPositif();
         System.out.println();
         
         System.out.println();
@@ -144,6 +148,8 @@ public class Main {
         System.out.println("[Employe] Demonstation du service - static void "
                 + "cloturerVoyanceSansCommentaire(Voyance voyance) :");
         System.out.println();
+        System.out.println("Demonstation du service similaire à celle d'avant "
+                + "sans commentaire");
         //ServiceEmploye.cloturerVoyanceSansCommentaire(voyance, employe);
         System.out.println();
         

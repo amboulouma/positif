@@ -45,7 +45,9 @@ public class Voyant extends Medium implements Serializable {
 
     @Override
     public String toString() {
-        return "Voyant{" + "support=" + support + '}';
+        return "Voyant{" + "support=" + support + "," + super.toString() +'}';
     }
+
+    
     
 }

@@ -20,6 +20,8 @@ public class Tarologue extends Medium implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private String cartes;
+    
+    
 
     public Tarologue() {
     }
@@ -43,7 +45,7 @@ public class Tarologue extends Medium implements Serializable {
 
     @Override
     public String toString() {
-        return "Tarologue{" + "cartes=" + cartes + '}';
+        return "Tarologue{" + "cartes=" + cartes + "," + super.toString() + '}';
     }
     
 }
