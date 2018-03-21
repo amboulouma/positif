@@ -14,7 +14,11 @@ package aaa.dasi.positif.DAO;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Client;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Employe;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Medium;
+import aaa.dasi.positif.ServicesMetiers.Modeles.ProfilAstrologique;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Voyance;
+import aaa.dasi.positif.ServicesMetiers.Services.util.AstroTest;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
@@ -42,6 +46,30 @@ public class AdministrateurDAO extends JpaUtil{
         }catch(Exception ex) {
             System.err.println("[AdministrateurDAO] Erreur lors de "
                     + "la persistance de l'employe.");
+        }
+    }
+    
+    
+    public static void persistClient(Client client) {
+        try{
+            EntityManager em = JpaUtil.obtenirEntityManager();
+            String api = "ASTRO-02-M0lGLURBU0ktQVNUUk8tQjAy";
+            List<String> profilAstrologique = new ArrayList<String>();
+            AstroTest astro = new AstroTest(api);
+            profilAstrologique = astro.getProfil(client.getPrenom(), 
+                    client.getDateNaissance());
+            ProfilAstrologique profilCalcule = new ProfilAstrologique();
+            profilCalcule.setSigneZodiaque(profilAstrologique.get(0));
+            profilCalcule.setSigneAstrologique(profilAstrologique.get(1));
+            profilCalcule.setCouleurPorteBonheur(profilAstrologique.get(2));
+            profilCalcule.setAnimalTotem(profilAstrologique.get(3));
+            client.setProfilAstrologique(profilCalcule);
+            em.persist(client);
+            System.out.println("[AdministrateurDAO] Persistance du "
+                    + "client réussie.");
+        }catch(Exception ex) {
+            System.err.println("[AdministrateurDAO] Erreur lors de "
+                    + "la persistance du client.");
         }
     }
     

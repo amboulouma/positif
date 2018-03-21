@@ -15,6 +15,9 @@ Permet d'ajouter un employé à POSIT'IF
 ```static void ajoutMedium(Medium medium);```
 Permet d'ajouter un medium à POSIT'IF
 
+```public static void ajoutClient(Client client);```
+Permet d'ajouter un client à POSIT'IF
+
 ```static Voyance affectationVoyance(Medium medium, Client client, Voyance voyance);```
 Permet d'affecter une voyance à un employé
 
@@ -53,8 +56,17 @@ Permet à l'employé de cloturer une voyance commentée avec un client de POSIT'
 ```static void cloturerVoyanceSansCommentaire(Voyance voyance, Employe employe);```
 Permet à l'employé de démarer une voyance non commentée avec un client de POSIT'IF
 
+```static String genererTableauBord();```
+Permet de générer le tableau de bord comprenant toutes les statistiques des mediums et des employés de POSIT'IF
+
 ```static String genererStatistiquesMedium();```
-Permet à l'employé de générer les statistiques d'un medium de POSIT'IF
+Permet à l'employé de générer les statistiques de voyances d'un medium de POSIT'IF
+
+```static String genererStatistiquesEmploye();```
+Permet à l'employé de générer les statistiques de voyances d'un employé de POSIT'IF
+
+```static String genererRepartitionEmploye()```
+Permet à l'employé de générer les statistiques de répartition de voyances entre les employés de POSIT'IF
 
 ```static List<String> genererPredictionsClient(Client client, int amour, int sante, int travail);```
 Permet à l'employé de générer les prédictions d'un client de POSIT'IF

@@ -25,15 +25,19 @@ import java.util.Date;
 public class ServiceEmploye {
     
     public static Client retrouverClient(Long idClient){
+        System.out.println();
         System.out.println("[ServiceEmploye] Service retrouver client de "
                 + "l'employé lancé.");
+        System.out.println();
         return EmployeDAO.trouverClient(idClient);
     }
     
     
     public static void demarerVoyance(Voyance voyance){
+        System.out.println();
         System.out.println("[ServiceEmploye] Service demarer la voyance "
                 + "avec le client de l'employé lancé.");
+        System.out.println();
         Date dateDebut = new Date();
         JpaUtil.creerEntityManager();
         JpaUtil.ouvrirTransaction();
@@ -44,8 +48,10 @@ public class ServiceEmploye {
     
     public static void cloturerVoyanceAvecCommentaire(Voyance voyance, 
             String commentaire, Employe employe){
+        System.out.println();
         System.out.println("[ServiceEmploye] Service cloturer la voyance "
                 + "avec le client avec commentaire de l'employé lancé.");
+        System.out.println();
         Date dateFin = new Date();
         JpaUtil.creerEntityManager();
         JpaUtil.ouvrirTransaction();
@@ -57,8 +63,10 @@ public class ServiceEmploye {
     
     public static void cloturerVoyanceSansCommentaire(Voyance voyance, 
             Employe employe){
+        System.out.println();
         System.out.println("[ServiceEmploye] Service cloturer la voyance "
                 + "avec le client sans commentaire de l'employé lancé.");
+        System.out.println();
         Date dateFin = new Date();
         JpaUtil.creerEntityManager();
         JpaUtil.ouvrirTransaction();
@@ -67,8 +75,10 @@ public class ServiceEmploye {
     }
     
     public static String genererTableauBord() {
+        System.out.println();
         System.out.println("[ServiceEmploye] Service générer le tableau de "
-                + "bord."); 
+                + "bord.");
+        System.out.println();
         String tableauBord = "";
         tableauBord += "\nInformations du tableau de bord\n\n";
         tableauBord += "1.Total de voyances demandées par medium\n";
@@ -81,22 +91,28 @@ public class ServiceEmploye {
     }
     
     public static String genererStatistiquesMedium(){
+        System.out.println();
         System.out.println("[ServiceEmploye] Service générer les statistiques "
                 + "des medium lancé.");
+        System.out.println();
         String statistiqueMedium = EmployeDAO.getStatisquesMedium();
         return statistiqueMedium;
     }
     
     public static String genererStatistiquesEmploye(){
+        System.out.println();
         System.out.println("[ServiceEmploye] Service générer les statistiques "
                 + "des employes lancé.");
+        System.out.println();
         String statistiqueMedium = EmployeDAO.getStatisquesEmploye();
         return statistiqueMedium;
     }
     
     public static String genererRepartitionEmploye(){
+        System.out.println();
         System.out.println("[ServiceEmploye] Service générer la repartition "
                 + "des employes lancé.");
+        System.out.println();
         String statistiqueMedium = EmployeDAO.getRepartitionEmploye();
         return statistiqueMedium;
     }
@@ -104,8 +120,10 @@ public class ServiceEmploye {
     
     public static List<String> genererPredictionsClient(Client client, int amour, int sante, 
             int travail) throws IOException{
+        System.out.println();
         System.out.println("[ServiceEmploye] Service générer des prédiction "
                 + "pour le client de l'employe est lancé.");
+        System.out.println();
         List<String> predictions = new ArrayList<String>() ;
         predictions = EmployeDAO.getPredictionsClient(client, amour, sante, travail);
         return predictions;

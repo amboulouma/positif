@@ -129,10 +129,10 @@ public class EmployeDAO extends JpaUtil{
                 result += statsMediums.get(i).getNom() + ": "
                         + statsMediums.get(i).getNombreAffectations() + "\n";
             }
-            System.out.println("[ClientDAO] Generation des statisques "
+            System.out.println("[EmployeDAO] Generation des statisques "
                     + "des mediums réussie.");
         }catch(Exception ex){
-            System.err.println("[ClientDAO] Generation des statisques des "
+            System.err.println("[EmployeDAO] Generation des statisques des "
                     + "mediums non réussie.");
         }finally{
             return result;
@@ -148,10 +148,10 @@ public class EmployeDAO extends JpaUtil{
             Query query = em.createQuery("select e from Employe e");
             employes = (List<Employe>) query.getResultList();
             result = employes.toString();
-            System.out.println("[ClientDAO] Generation des statisques "
+            System.out.println("[EmployeDAO] Generation des statisques "
                     + "des employes réussie.");
         }catch(Exception ex){
-            System.err.println("[ClientDAO] Generation des statisques des "
+            System.err.println("[EmployeDAO] Generation des statisques des "
                     + "employes non réussie.");
         }finally{
             return result;
@@ -172,10 +172,10 @@ public class EmployeDAO extends JpaUtil{
                         + repartitionEmployes.get(i).getNombreAffectations() * 
                         100 / repartitionEmployes.size() + "% \n" ;
             }
-            System.out.println("[ClientDAO] Generation de la repartition "
+            System.out.println("[EmployeDAO] Generation de la repartition "
                     + "des employes réussie.");
         }catch(Exception ex){
-            System.err.println("[ClientDAO] Generation de la repartition des "
+            System.err.println("[EmployeDAO] Generation de la repartition des "
                     + "employes non réussie.");
         }finally{
             return result;

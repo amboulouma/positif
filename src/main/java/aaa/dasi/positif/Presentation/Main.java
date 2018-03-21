@@ -50,6 +50,7 @@ public class Main {
                 "06 12 03 07 78",
                 "tom@martin.gs",
                 profilAstrologique);
+        
         Medium medium = new Voyant("Boule de Cristal", "Gwenaël", 
                 "Spécialiste des grandes conversations au-delà de "
                         + "TOUTES les frontières.");
@@ -60,7 +61,7 @@ public class Main {
         System.out.println("[Administrateur] Initalisation de la plateforme "
                 + "avec le service - static void initpositif() :");
         System.out.println();
-        //ServiceAdministrateur.initPositif();
+        ServiceAdministrateur.initPositif();
         System.out.println();
         
         System.out.println();
