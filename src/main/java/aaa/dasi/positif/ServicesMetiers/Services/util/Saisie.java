@@ -37,7 +37,7 @@ public class Saisie {
         }
         return valeurLue;
     }
-
+    
     public static Integer lireInteger(String invite, List<Integer> valeursPossibles) {
         Integer valeurLue = null;
         while (valeurLue == null) {

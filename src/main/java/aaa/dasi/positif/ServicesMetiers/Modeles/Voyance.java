@@ -170,12 +170,16 @@ public class Voyance implements Serializable {
 
     
     public String toStringEmploye() {
-        return "\nVoyance{" + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + ", commentaire=" + commentaire + ", medium=" + medium + ", client=" + client + "}";
+        return "\nVoyance{" + ", dateDebut=" + dateDebut + ", dateFin=" + 
+                dateFin + ", commentaire=" + commentaire + ", medium=" +
+                medium + ", client=" + client + "}";
     }
     
     @Override
     public String toString() {
-        return "\nVoyance{" + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + ", commentaire=" + commentaire + ", medium=" + medium + "}";
+        return "\nVoyance{" + ", dateDebut=" + dateDebut + ", dateFin=" 
+                + dateFin + ", commentaire=" + commentaire + ", medium=" 
+                + medium + "}";
     }
     
 }

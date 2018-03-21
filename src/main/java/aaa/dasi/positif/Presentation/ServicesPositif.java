@@ -19,6 +19,7 @@ import aaa.dasi.positif.ServicesMetiers.Modeles.Voyance;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Voyant;
 import aaa.dasi.positif.ServicesMetiers.Services.ServiceAdministrateur;
 import aaa.dasi.positif.ServicesMetiers.Services.ServiceClient;
+import aaa.dasi.positif.ServicesMetiers.Services.ServiceEmploye;
 import aaa.dasi.positif.ServicesMetiers.Services.util.Saisie;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -29,13 +30,14 @@ import java.util.List;
 
 public class ServicesPositif {
     
-    
     static public int interfaceUtilisateur() {
         System.out.println();
         
         System.out.println("Bienvenue sur POSIT'IF, le service de voyance "
                 + "du futur.");
+
         System.out.println();        
+        
         System.out.println("Les service Administrateur ");
 
         System.out.println();
@@ -49,24 +51,15 @@ public class ServicesPositif {
 
         System.out.println("3- Lancer le service d'ajout de client");
 
-        System.out.println("4- Lancer le service d'affectation de voyance");
-
         System.out.println();
 
         System.out.println("Les service Client ");
 
         System.out.println();
 
-        System.out.println("5- Lancer le service d'inscription");
+        System.out.println("4- Lancer le service d'inscription");
 
-        System.out.println("6- Lancer le service de connexion");
-
-        System.out.println("7- Lancer le service de génération des mediums");
-
-        System.out.println("8- Lancer le service de demande de voyances");
-
-        System.out.println("9- Lancer le service de génération de "
-                + "l'historique");
+        System.out.println("5- Lancer le service de connexion");
 
         System.out.println();
 
@@ -74,35 +67,11 @@ public class ServicesPositif {
 
         System.out.println();
 
-        System.out.println("10- Lancer le service de retrouver un client");
+        System.out.println("6- Lancer le service de retrouver un client");
 
-        System.out.println("11- Lancer le service de démarrer une voyance");
-
-        System.out.println("12- Lancer le service cloturer voyance avec "
-                + "commentaire");
-
-        System.out.println("13- Lancer le service cloturer voyance sans "
-                + "commentaire");
-
-        System.out.println("14- Lancer le service de génération du tableau "
-                + "de bord");
-
-        System.out.println("15- Lancer le service de génération de statistiques "
-                + "des mediums");
-
-        System.out.println("16- Lancer le service de génération de statistiques "
-                + "des employés");
-
-        System.out.println("17- Lancer le service de génération de répartition "
-                + "des employés");
-
-        System.out.println("18- Lancer le service de génération de prédictions "
-                + "client");
+        System.out.println("7- Lancer le service de démarrer une voyance");
         
-        System.out.println();
-        
-        return Saisie.lireInteger("Entrez le numéro du service que vous voulez "
-                + "lancer : ");   
+        return Saisie.lireInteger("Entrez votre choix : ");
     }
         
 
@@ -169,12 +138,7 @@ public class ServicesPositif {
         System.out.println();
     }
 
-    static public void affectationVoyance() {
-        System.out.println();
-        
-        System.out.println();
-    }
-
+    
     static public void inscriptionClient() throws ParseException {
         System.out.println();
         String nom = Saisie.lireChaine("Entrer votre nom : ");
@@ -213,97 +177,132 @@ public class ServicesPositif {
             System.out.println("2- Voir mon historique");
             System.out.println();
             int choix = Saisie.lireInteger("Entrez votre choix : ");
-            if (choix == 1) {
-                System.out.println();
-                List<Medium> listMedium = ServiceClient.
-                        genererMediums();
-                for (int i = 0; i < listMedium.size(); i++) {
-                    System.out.println(i + 1 + "- " + listMedium.get(i));
-                }
-                int choixMedium = Saisie.lireInteger("Choisisser "
-                        + "votre medium : ");
-                Voyance voyance = ServiceClient.demanderVoyance(
-                        listMedium.get(choixMedium - 1), client);
-                
-                System.out.println();
-            } else if (choix == 2) {
-                System.out.println();
-                System.out.println(ServiceClient.genererHistoriqueVoyances(mail));
-                System.out.println();
-            } else {
-                System.out.println("Saisie incorrecte.");
-                connexionClient();
+            switch (choix) {
+                case 1:
+                    System.out.println();
+                    List<Medium> listMedium = ServiceClient.
+                            genererMediums();
+                    for (int i = 0; i < listMedium.size(); i++) {
+                        System.out.println(i + 1 + "- " + listMedium.get(i));
+                    }   int choixMedium = Saisie.lireInteger("Choisisser "
+                            + "votre medium : ");
+                    Voyance voyance = ServiceClient.demanderVoyance(
+                            listMedium.get(choixMedium - 1), client);
+                    System.out.println();
+                    break;
+                case 2:
+                    System.out.println();
+                    System.out.println(ServiceClient.genererHistoriqueVoyances(mail));
+                    System.out.println();
+                    break;
+                default:
+                    System.out.println("Saisie incorrecte.");
+                    connexionClient();
+                    break;
             }
         } else {
             System.out.println("Saisie incorrecte.");
             int choix = Saisie.lireInteger("Si vous n'etes pas encore inscrit "
                     + "entrez 1 sinon 2 pour reessayer de vous connecter : ");
-            if (choix == 1) {
-                inscriptionClient();
-            } else if (choix == 2) {
-                connexionClient();
-            } else {
-                System.out.println("Saisie incorrecte.");
-                connexionClient();
+            switch (choix) {
+                case 1:
+                    inscriptionClient();
+                    break;
+                case 2:
+                    connexionClient();
+                    break;
+                default:
+                    System.out.println("Saisie incorrecte.");
+                    connexionClient();
+                    break;
             }
         System.out.println();
         }
     }
     
-
+    
     static public void retrouverClient() {
         System.out.println();
+        String id = Saisie.lireChaine("Entrer l'identifiant du client que "
+                + "vous cherchez : ");
+        Long idClient = Long.parseLong(id);
         System.out.println(ServiceEmploye.retrouverClient(idClient));
         System.out.println();
     }
 
-    static public void demarerVoyance() {
+    static public void demarrerVoyance() {
         System.out.println();
+        String id = Saisie.lireChaine("Entrer l'identifiant du client avec qui"
+                + " vous voulez demarrer la voyance : ");
+        Long idClient = Long.parseLong(id);
+        
+        List<Medium> listMedium = ServiceClient.genererMediums();
+        for (int i = 0; i < listMedium.size(); i++) {
+            System.out.println(i + 1 + "- " + listMedium.get(i));
+        }
+        int choixMedium = Saisie.lireInteger("Choisisser "
+                + "votre medium : ");
+        Voyance voyance = ServiceClient.demanderVoyance(
+                listMedium.get(choixMedium - 1), 
+                ServiceEmploye.retrouverClient(idClient));
         ServiceEmploye.demarrerVoyance(voyance);
         System.out.println();
-    }
-
-    static public void cloturerVoyanceAvecCommentaire() {
+        System.out.println("Disscussion démarré:");
+        System.out.println("1- Cloturer la discussion avec commentaire");
+        System.out.println("2- Cloturer la discussion sans commentaire");
         System.out.println();
-        String commentaire = "Un commentaire pour tester.";
-        ServiceEmploye.cloturerVoyanceAvecCommentaire(voyance, commentaire);
+        int choix = Saisie.lireInteger("Entrez votre choix : ");
+        do {
+            switch (choix) {
+                case 1:
+                    String commentaire = Saisie.lireChaine("Entrez votre "
+                            + "commentaire : ");
+                    ServiceEmploye.cloturerVoyanceAvecCommentaire(voyance,
+                            commentaire);
+                    break;
+                case 2:
+                    ServiceEmploye.cloturerVoyanceSansCommentaire(voyance);
+                    break;   
+                default:
+                    System.out.println("Saisie incorrecte.");
+                    break;
+            }
+        } while (choix != 1 && choix !=2);
         System.out.println();
-    }
-
-    static public void cloturerVoyanceSansCommentaire() {
+        
         System.out.println();
-        ServiceEmploye.cloturerVoyanceSansCommentaire(voyance);
+        System.out.println("Disscussion démarré:");
+        System.out.println("1- Générer tableau de bord");
+        System.out.println("2- Générer statistiques du medium");
+        System.out.println("3- Générer statistiques de l'employé");
+        System.out.println("4- Générer répartition des employé");
+        System.out.println("5- Générer prédiction pour le client");
         System.out.println();
-    }
-
-    static public void genererTableauBord() {
-        System.out.println();
-        System.out.println(ServiceEmploye.genererTableauBord());
-        System.out.println();
-    }
-
-    static public void genererStatistiquesMedium() {
-        System.out.println();
-
-        System.out.println();
-    }
-
-    static public void genererStatistiquesEmploye() {
-        System.out.println();
-
-        System.out.println();
-    }
-
-    static public void genererRepartitionEmploye() {
-        System.out.println();
-
-        System.out.println();
-    }
-
-    static public void genererPredictionsClient() {
-        System.out.println();
-        System.out.println(ServiceEmploye.genererPredictionsClient(client, 2, 
-                    1, 3));
-        System.out.println();
+        choix = Saisie.lireInteger("Entrez votre choix : ");
+         do {
+            switch (choix) {
+                case 1:
+                    String commentaire = Saisie.lireChaine("Entrez votre "
+                            + "commentaire : ");
+                    ServiceEmploye.cloturerVoyanceAvecCommentaire(voyance,
+                            commentaire);
+                    break;
+                case 2:
+                    ServiceEmploye.genererTableauBord();
+                    break;
+                case 3:
+                    ServiceEmploye.genererStatistiquesMedium();
+                    break;
+                case 4:
+                    ServiceEmploye.genererStatistiquesEmploye();
+                    break;   
+                case 5:
+                    ServiceEmploye.genererRepartitionEmploye();
+                    break;
+                default:
+                    System.out.println("Saisie incorrecte.");
+                    break;
+            }
+        } while (choix != 1 && choix !=2 && choix != 3 && choix !=4 && choix != 5);
     }
 }

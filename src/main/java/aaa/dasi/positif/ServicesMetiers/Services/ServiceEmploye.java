@@ -62,8 +62,7 @@ public class ServiceEmploye {
     }
     
     
-    public static void cloturerVoyanceSansCommentaire(Voyance voyance, 
-            Employe employe){
+    public static void cloturerVoyanceSansCommentaire(Voyance voyance) {
         System.out.println();
         System.out.println("[ServiceEmploye] Service cloturer la voyance "
                 + "avec le client sans commentaire de l'employé lancé.");
