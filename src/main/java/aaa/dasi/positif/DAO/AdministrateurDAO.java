@@ -79,8 +79,9 @@ public class AdministrateurDAO extends JpaUtil{
         try{
             EntityManager em = JpaUtil.obtenirEntityManager();
             Query query = em.createQuery("select distinct e from Employe e "
-                    + "where e.nombreAffectations = (select "
-                    + "MIN(e.nombreAffectations) from Employe e)");
+                    + "where e.nombreDeVoyances = (select "
+                    + "MIN(e.nombreDeVoyances) from Employe e) and e.disponible= :disponible");
+            query.setParameter("disponible", true);
             query.setMaxResults(1).getResultList();
             employe = (Employe)query.getSingleResult();
             System.out.println("[AdministrateurDAO] Employé avec affectations "
@@ -95,8 +96,8 @@ public class AdministrateurDAO extends JpaUtil{
     public static String modifierVoyance(Voyance voyance, Medium medium, 
             Client client, Employe employe) {
         String notificationEmploye = "";
-        int nombreAffectationsEmploye = employe.getNombreAffectations();
-        int nombreAffectationsMedium = medium.getNombreAffectations();
+        int nombreAffectationsEmploye = employe.getNombreDeVoyances();
+        int nombreAffectationsMedium = medium.getNombreDeVoyances();
         try{
             notificationEmploye += "Voyance demandée pour le client " 
                     + client.getNom() + " " + client.getPrenom() + " (#" 

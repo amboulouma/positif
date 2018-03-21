@@ -33,7 +33,7 @@ public class ServiceEmploye {
     }
     
     
-    public static void demarerVoyance(Voyance voyance){
+    public static void demarerVoyance(Voyance voyance, Employe employe){
         System.out.println();
         System.out.println("[ServiceEmploye] Service demarer la voyance "
                 + "avec le client de l'employé lancé.");
@@ -41,7 +41,7 @@ public class ServiceEmploye {
         Date dateDebut = new Date();
         JpaUtil.creerEntityManager();
         JpaUtil.ouvrirTransaction();
-        EmployeDAO.mergeDateDebutVoyance(voyance, dateDebut);
+        EmployeDAO.mergeDateDebutVoyance(voyance, dateDebut, employe);
         JpaUtil.validerTransaction();
     }
     
@@ -55,7 +55,7 @@ public class ServiceEmploye {
         Date dateFin = new Date();
         JpaUtil.creerEntityManager();
         JpaUtil.ouvrirTransaction();
-        EmployeDAO.mergeDateFinVoyance(voyance, dateFin);
+        EmployeDAO.mergeDateFinVoyance(voyance, dateFin, employe);
         EmployeDAO.mergeCommentaire(voyance, commentaire);
         JpaUtil.validerTransaction();
     }
@@ -70,7 +70,7 @@ public class ServiceEmploye {
         Date dateFin = new Date();
         JpaUtil.creerEntityManager();
         JpaUtil.ouvrirTransaction();
-        EmployeDAO.mergeDateFinVoyance(voyance, dateFin);
+        EmployeDAO.mergeDateFinVoyance(voyance, dateFin, employe);
         JpaUtil.validerTransaction();
     }
     

@@ -58,6 +58,15 @@ public class Main {
         Employe employe = new Employe("Kevin", "Musk");
         
         System.out.println();
+        System.out.println("---------------------------------------------------"
+                + "---------------------");
+        System.out.println("[Administrateur] Démonstration de tous les "
+                + "services administrateurs");
+        System.out.println("---------------------------------------------------"
+                + "---------------------");
+        System.out.println();
+        
+        System.out.println();
         System.out.println("[Administrateur] Initalisation de la plateforme "
                 + "avec le service - static void initpositif() :");
         System.out.println();
@@ -76,6 +85,15 @@ public class Main {
                 + "static void ajoutMedium(Medium medium) -");
         System.out.println();
         ServiceAdministrateur.ajoutMedium(medium);
+        System.out.println();
+        
+        System.out.println();
+        System.out.println("---------------------------------------------------"
+                + "---------------------");
+        System.out.println("[Client] Démonstration de tous les "
+                + "services Client");
+        System.out.println("---------------------------------------------------"
+                + "---------------------");
         System.out.println();
         
         System.out.println();
@@ -122,6 +140,15 @@ public class Main {
         System.out.println();
         
         System.out.println();
+        System.out.println("---------------------------------------------------"
+                + "---------------------");
+        System.out.println("[Employe] Démonstration de tous les "
+                + "services Employe");
+        System.out.println("---------------------------------------------------"
+                + "---------------------");
+        System.out.println();
+        
+        System.out.println();
         System.out.println("[Employe] Demonstation du service - "
                 + "static Client retrouverClient(Long idClient) :");
         System.out.println();
@@ -132,7 +159,7 @@ public class Main {
         System.out.println("[Employe] Demonstation du service - "
                 + "static void demarerVoyance(Voyance voyance) :");
         System.out.println();
-        ServiceEmploye.demarerVoyance(voyance);
+        ServiceEmploye.demarerVoyance(voyance, employe);
         System.out.println();
         
         System.out.println();
@@ -164,7 +191,7 @@ public class Main {
         System.out.println();
         System.out.println("[Employe] Demonstation du service - static "
                 + "List<String> genererPredictionsClient(Client client, "
-                + "int amour, int sante, int travail) : \n");
+                + "int amour, int sante, int travail) :");
         System.out.println();
         System.out.println(ServiceEmploye.genererPredictionsClient(client, 2, 
                     1, 3));

@@ -159,7 +159,7 @@ public class Client implements Serializable {
 
     @Override
     public String toString() {
-        return "Client{" + "idClient=" + idClient + ", nom=" + nom + ", prenom=" + prenom + ", civilite=" + civilite + ", dateNaissance=" + dateNaissance + ", adressePostale=" + adressePostale + ", telephone=" + telephone + ", mail=" + mail + ", profilAstrologique=" + profilAstrologique + "}\n";
+        return "\nClient{" + "idClient=" + idClient + ", nom=" + nom + ", prenom=" + prenom + ", civilite=" + civilite + ", dateNaissance=" + dateNaissance + ", adressePostale=" + adressePostale + ", telephone=" + telephone + ", mail=" + mail + ", profilAstrologique=" + profilAstrologique + "}";
     }
     
 }

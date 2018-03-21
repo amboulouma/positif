@@ -30,7 +30,7 @@ public class Medium implements Serializable {
     private String bio;
     @ManyToMany
     private List<Employe> employe;
-    private int nombreAffectations;
+    private int nombreDeVoyances;
     
     public Medium(String nom, String bio) {
         this.nom = nom;
@@ -42,7 +42,7 @@ public class Medium implements Serializable {
         this.nom = nom;
         this.bio = bio;
         this.employe = employe;
-        this.nombreAffectations = 0;
+        this.nombreDeVoyances = 0;
     }
 
     public Medium() {
@@ -75,12 +75,12 @@ public class Medium implements Serializable {
         return employe;
     }
     
-    public int getNombreAffectations() {
-        return this.nombreAffectations;
+    public int getNombreDeVoyances() {
+        return this.nombreDeVoyances;
     }
 
-    public void setNombreAffectations(int nombreAffectations) {
-        this.nombreAffectations = nombreAffectations;
+    public void setNombreDeVoyances(int nombreDeVoyances) {
+        this.nombreDeVoyances = nombreDeVoyances;
     }
 
     public void setIdMedium(Long idMedium) {
@@ -101,7 +101,7 @@ public class Medium implements Serializable {
 
     @Override
     public String toString() {
-        return "Medium{" + ", nom=" + nom + ", bio=" + bio + ", employe=" + employe + '}';
+        return "Medium{" + ", nom=" + nom + ", bio=" + bio + '}';
     }
 
     

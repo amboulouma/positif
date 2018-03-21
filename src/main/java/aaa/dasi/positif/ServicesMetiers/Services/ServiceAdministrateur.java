@@ -27,57 +27,6 @@ import java.util.concurrent.ThreadLocalRandom;
 
 
 public class ServiceAdministrateur {
-
-    public static void ajoutMedium(Medium medium){
-        System.out.println();
-        System.out.println("[ServiceAdministrateur] Service ajout du "
-                + "medium lancé.");
-        System.out.println();
-        JpaUtil.creerEntityManager();
-        JpaUtil.ouvrirTransaction();
-        AdministrateurDAO.persistMedium(medium);
-        JpaUtil.validerTransaction();
-    }
-    
-    public static void ajoutEmploye(Employe employe){
-        System.out.println();
-        System.out.println("[ServiceAdministrateur] Service ajout de "
-                + "l'employé lancé.");
-        System.out.println();
-        JpaUtil.creerEntityManager();
-        JpaUtil.ouvrirTransaction();
-        AdministrateurDAO.persistEmploye(employe);
-        JpaUtil.validerTransaction();
-    }
-    
-    public static void ajoutClient(Client client){
-        System.out.println();
-        System.out.println("[ServiceAdministrateur] Service ajout du "
-                + "client lancé.");
-        System.out.println();
-        JpaUtil.creerEntityManager();
-        JpaUtil.ouvrirTransaction();
-        AdministrateurDAO.persistClient(client);
-        JpaUtil.validerTransaction();
-    }
-    
-    public static Voyance affectationVoyance(Medium medium, 
-            Client client, Voyance voyance){
-        System.out.println();
-        System.out.println("[ServiceAdministrateur] Service d'affectation de "
-                + "voyance lancé.");
-        System.out.println();
-        JpaUtil.creerEntityManager();
-        JpaUtil.ouvrirTransaction();
-        Employe employe = 
-                AdministrateurDAO.trouverEmployeAvecAffectationsMinimales();
-        String notificationEmploye = AdministrateurDAO.modifierVoyance(voyance, 
-                medium, client, employe);
-        JpaUtil.validerTransaction();
-        System.out.println("[Notification Employe] " + notificationEmploye);
-        return voyance;
-    }
-    
     
     public static void initPositif(){
         System.out.println();
@@ -220,6 +169,56 @@ public class ServiceAdministrateur {
         System.out.println("---------------------------------------------------"
                 + "---------------------");
         System.out.println("Fin de l'initialisation de l'application POSIT'IF");
+    }
+    
+
+    public static void ajoutMedium(Medium medium){
         System.out.println();
+        System.out.println("[ServiceAdministrateur] Service ajout du "
+                + "medium lancé.");
+        System.out.println();
+        JpaUtil.creerEntityManager();
+        JpaUtil.ouvrirTransaction();
+        AdministrateurDAO.persistMedium(medium);
+        JpaUtil.validerTransaction();
+    }
+    
+    public static void ajoutEmploye(Employe employe){
+        System.out.println();
+        System.out.println("[ServiceAdministrateur] Service ajout de "
+                + "l'employé lancé.");
+        System.out.println();
+        JpaUtil.creerEntityManager();
+        JpaUtil.ouvrirTransaction();
+        AdministrateurDAO.persistEmploye(employe);
+        JpaUtil.validerTransaction();
+    }
+    
+    public static void ajoutClient(Client client){
+        System.out.println();
+        System.out.println("[ServiceAdministrateur] Service ajout du "
+                + "client lancé.");
+        System.out.println();
+        JpaUtil.creerEntityManager();
+        JpaUtil.ouvrirTransaction();
+        AdministrateurDAO.persistClient(client);
+        JpaUtil.validerTransaction();
+    }
+    
+    public static Voyance affectationVoyance(Medium medium, 
+            Client client, Voyance voyance){
+        System.out.println();
+        System.out.println("[ServiceAdministrateur] Service d'affectation de "
+                + "voyance lancé.");
+        System.out.println();
+        JpaUtil.creerEntityManager();
+        JpaUtil.ouvrirTransaction();
+        Employe employe = 
+                AdministrateurDAO.trouverEmployeAvecAffectationsMinimales();
+        String notificationEmploye = AdministrateurDAO.modifierVoyance(voyance, 
+                medium, client, employe);
+        JpaUtil.validerTransaction();
+        System.out.println("[Notification Employe] " + notificationEmploye);
+        return voyance;
     }
 }

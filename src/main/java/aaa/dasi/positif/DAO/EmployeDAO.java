@@ -59,11 +59,30 @@ public class EmployeDAO extends JpaUtil{
             return client;
         }     
     }  
+    
+    public static void mergeDisponible(Employe employe, Boolean disponible) {
+        try{
+            EntityManager em = JpaUtil.obtenirEntityManager();
+            employe.setDisponible(disponible);
+            em.merge(employe);
+            if (disponible == true)
+                System.out.println("[EmployeDAO] L'employé est à nouveau "
+                        + "disponible.");
+            else 
+                System.out.println("[EmployeDAO] L'employé ne sera plus "
+                        + "disponible jusqu'à ce qu'il finisse la discussion.");
+        }catch(Exception ex) {
+            System.err.println("[EmployeDAO] Ajout de la date de début "
+                    + "de la voyance non réussi.");
+        }
+    }
 
-    public static void mergeDateDebutVoyance(Voyance voyance, Date dateDebut) {
+    public static void mergeDateDebutVoyance(Voyance voyance, Date dateDebut, 
+            Employe employe) {
         try{
             EntityManager em = JpaUtil.obtenirEntityManager();
             voyance.setDateDebut(dateDebut);
+            mergeDisponible(employe, false);
             em.merge(voyance);
             System.out.println("[EmployeDAO] Ajout de la date de début de "
                     + "la voyance réussi.");
@@ -73,10 +92,12 @@ public class EmployeDAO extends JpaUtil{
         }
     }
 
-    public static void mergeDateFinVoyance(Voyance voyance, Date dateFin) {
+    public static void mergeDateFinVoyance(Voyance voyance, Date dateFin, 
+            Employe employe) {
         try{
             EntityManager em = JpaUtil.obtenirEntityManager();
             voyance.setDateFin(dateFin);
+            mergeDisponible(employe, true);
             em.merge(voyance);
             System.out.println("[EmployeDAO] Ajout de la date de fin de "
                     + "la voyance réussi.");
@@ -105,8 +126,8 @@ public class EmployeDAO extends JpaUtil{
             int nombreAffectationsMedium){
         try{
             EntityManager em = JpaUtil.obtenirEntityManager();
-            employe.setNombreAffectations(nombreAffectationsEmploye);
-            medium.setNombreAffectations(nombreAffectationsMedium);
+            employe.setNombreDeVoyances(nombreAffectationsEmploye);
+            medium.setNombreDeVoyances(nombreAffectationsMedium);
             em.merge(employe);
             em.merge(medium);
             System.out.println("[EmployeDAO] Mise à jour du nombre "
@@ -127,7 +148,7 @@ public class EmployeDAO extends JpaUtil{
             statsMediums = (List<Medium>) query.getResultList();
             for(int i=0; i<statsMediums.size(); i++){ 
                 result += statsMediums.get(i).getNom() + ": "
-                        + statsMediums.get(i).getNombreAffectations() + "\n";
+                        + statsMediums.get(i).getNombreDeVoyances() + "\n";
             }
             System.out.println("[EmployeDAO] Generation des statisques "
                     + "des mediums réussie.");
@@ -167,10 +188,11 @@ public class EmployeDAO extends JpaUtil{
             Query query = em.createQuery("select e from Employe e");
             repartitionEmployes = (List<Employe>) query.getResultList();
             for(int i=0; i<repartitionEmployes.size(); i++){ 
+                result += "\n";
                 result += repartitionEmployes.get(i).getNom() + " " 
                         + repartitionEmployes.get(i).getPrenom() + ": "
-                        + repartitionEmployes.get(i).getNombreAffectations() * 
-                        100 / repartitionEmployes.size() + "% \n" ;
+                        + repartitionEmployes.get(i).getNombreDeVoyances() * 
+                        100 / repartitionEmployes.size() + "%" ;
             }
             System.out.println("[EmployeDAO] Generation de la repartition "
                     + "des employes réussie.");

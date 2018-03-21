@@ -35,7 +35,7 @@ public class Employe implements Serializable {
     private List<Voyance> voyance;
     @ManyToMany
     private List<Medium> medium;
-    private int nombreAffectations;
+    private int nombreDeVoyances;
     private boolean disponible;
 
     public Employe() {
@@ -49,7 +49,7 @@ public class Employe implements Serializable {
         this.prenom = prenom;
         this.voyance = voyance;
         this.medium = medium;
-        this.nombreAffectations = 0;
+        this.nombreDeVoyances = 0;
         this.disponible = true;
     }
 
@@ -59,12 +59,12 @@ public class Employe implements Serializable {
         this.disponible = true;
     }
 
-    public int getNombreAffectations() {
-        return this.nombreAffectations;
+    public int getNombreDeVoyances() {
+        return this.nombreDeVoyances;
     }
 
-    public void setNombreAffectations(int nombreAffectations) {
-        this.nombreAffectations = nombreAffectations;
+    public void setNombreDeVoyances(int nombreDeVoyances) {
+        this.nombreDeVoyances = nombreDeVoyances;
     }
     
     
@@ -165,12 +165,12 @@ public class Employe implements Serializable {
     public String toStringMax() {
         return "Employe{" + "idEmploye=" + idEmploye + ", nom=" + nom 
                 + ", prenom=" + prenom + ", voyance=" + voyance + ", medium=" 
-                + medium + ", nombre d'affectations =" + nombreAffectations + "}\n";
+                + medium + ", nombre de voyances =" + nombreDeVoyances + "}";
     }
     
     @Override
     public String toString() {
-        return "Employe{" + "nom=" + nom + ", prenom=" + prenom 
-                + ", nombre d'affectations =" + nombreAffectations + "}\n";
+        return "\nEmploye{" + "nom=" + nom + ", prenom=" + prenom 
+                + ", nombre de voyances =" + nombreDeVoyances + "}";
     }
 }
