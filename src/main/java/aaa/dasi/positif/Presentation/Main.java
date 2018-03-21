@@ -48,7 +48,7 @@ public class Main {
                 dateNaissance,
                 adressePostale,
                 "06 12 03 07 78",
-                "tom@martin.gs",
+                "tom.martin@gmail.com",
                 profilAstrologique);
         
         Medium medium = new Voyant("Boule de Cristal", "Gwenaël", 
@@ -122,6 +122,7 @@ public class Main {
         System.out.println("[Client] Demonstation du service - "
                 + "static Voyance demanderVoyance(Medium medium,"
                 + " Client client) :");
+        System.out.println();
         System.out.println("[Administrateur] Demonstation du service - "
                 + "static Voyance affectationVoyance(Medium medium, "
                 + "Client client, Voyance voyance) :");
@@ -157,9 +158,9 @@ public class Main {
         
         System.out.println();
         System.out.println("[Employe] Demonstation du service - "
-                + "static void demarerVoyance(Voyance voyance) :");
+                + "static void demarrerVoyance(Voyance voyance) :");
         System.out.println();
-        ServiceEmploye.demarerVoyance(voyance, employe);
+        ServiceEmploye.demarrerVoyance(voyance);
         System.out.println();
         
         System.out.println();
@@ -168,8 +169,7 @@ public class Main {
                 + "String commentaire) :");
         System.out.println();
         String commentaire = "Un commentaire pour tester.";
-        ServiceEmploye.cloturerVoyanceAvecCommentaire(voyance, commentaire, 
-                employe);
+        ServiceEmploye.cloturerVoyanceAvecCommentaire(voyance, commentaire);
         System.out.println();
         
         System.out.println();
@@ -178,7 +178,7 @@ public class Main {
         System.out.println();
         System.out.println("Demonstation du service similaire à celle d'avant "
                 + "sans commentaire");
-        //ServiceEmploye.cloturerVoyanceSansCommentaire(voyance, employe);
+        //ServiceEmploye.cloturerVoyanceSansCommentaire(voyance);
         System.out.println();
         
         System.out.println();

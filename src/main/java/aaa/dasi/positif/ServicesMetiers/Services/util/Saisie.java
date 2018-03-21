@@ -61,6 +61,10 @@ public class Saisie {
     public static void main(String[] args) {
         
         
+        
+        
+        
+        
         System.out.println("Bonjour !");
         
         String nom = Saisie.lireChaine("Entrez votre nom: ");

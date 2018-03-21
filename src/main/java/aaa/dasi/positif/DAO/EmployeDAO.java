@@ -3,9 +3,10 @@
  * 
  * 
  * @author B3432
+ * @author Amine Mohamed Boulouma
  * @author Abdelaziz El Omari Alaoui
  * @author Agathe Sauvestre
- * @author Amine Mohamed Boulouma
+ * 
  */
 
 
@@ -77,12 +78,11 @@ public class EmployeDAO extends JpaUtil{
         }
     }
 
-    public static void mergeDateDebutVoyance(Voyance voyance, Date dateDebut, 
-            Employe employe) {
+    public static void mergeDateDebutVoyance(Voyance voyance, Date dateDebut) {
         try{
             EntityManager em = JpaUtil.obtenirEntityManager();
             voyance.setDateDebut(dateDebut);
-            mergeDisponible(employe, false);
+            mergeDisponible(voyance.getEmploye(), false);
             em.merge(voyance);
             System.out.println("[EmployeDAO] Ajout de la date de début de "
                     + "la voyance réussi.");
@@ -92,12 +92,11 @@ public class EmployeDAO extends JpaUtil{
         }
     }
 
-    public static void mergeDateFinVoyance(Voyance voyance, Date dateFin, 
-            Employe employe) {
+    public static void mergeDateFinVoyance(Voyance voyance, Date dateFin) {
         try{
             EntityManager em = JpaUtil.obtenirEntityManager();
             voyance.setDateFin(dateFin);
-            mergeDisponible(employe, true);
+            mergeDisponible(voyance.getEmploye(), true);
             em.merge(voyance);
             System.out.println("[EmployeDAO] Ajout de la date de fin de "
                     + "la voyance réussi.");

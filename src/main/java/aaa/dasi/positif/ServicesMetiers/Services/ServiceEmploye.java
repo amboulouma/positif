@@ -3,11 +3,11 @@
  * 
  * 
  * @author B3432
+ * @author Amine Mohamed Boulouma
  * @author Abdelaziz El Omari Alaoui
  * @author Agathe Sauvestre
- * @author Amine Mohamed Boulouma
+ * 
  */
-
 
 package aaa.dasi.positif.ServicesMetiers.Services;
 
@@ -33,7 +33,7 @@ public class ServiceEmploye {
     }
     
     
-    public static void demarerVoyance(Voyance voyance, Employe employe){
+    public static void demarrerVoyance(Voyance voyance){
         System.out.println();
         System.out.println("[ServiceEmploye] Service demarer la voyance "
                 + "avec le client de l'employé lancé.");
@@ -41,13 +41,13 @@ public class ServiceEmploye {
         Date dateDebut = new Date();
         JpaUtil.creerEntityManager();
         JpaUtil.ouvrirTransaction();
-        EmployeDAO.mergeDateDebutVoyance(voyance, dateDebut, employe);
+        EmployeDAO.mergeDateDebutVoyance(voyance, dateDebut);
         JpaUtil.validerTransaction();
     }
     
     
     public static void cloturerVoyanceAvecCommentaire(Voyance voyance, 
-            String commentaire, Employe employe){
+            String commentaire){
         System.out.println();
         System.out.println("[ServiceEmploye] Service cloturer la voyance "
                 + "avec le client avec commentaire de l'employé lancé.");
@@ -55,7 +55,7 @@ public class ServiceEmploye {
         Date dateFin = new Date();
         JpaUtil.creerEntityManager();
         JpaUtil.ouvrirTransaction();
-        EmployeDAO.mergeDateFinVoyance(voyance, dateFin, employe);
+        EmployeDAO.mergeDateFinVoyance(voyance, dateFin);
         EmployeDAO.mergeCommentaire(voyance, commentaire);
         JpaUtil.validerTransaction();
     }
@@ -70,7 +70,7 @@ public class ServiceEmploye {
         Date dateFin = new Date();
         JpaUtil.creerEntityManager();
         JpaUtil.ouvrirTransaction();
-        EmployeDAO.mergeDateFinVoyance(voyance, dateFin, employe);
+        EmployeDAO.mergeDateFinVoyance(voyance, dateFin);
         JpaUtil.validerTransaction();
     }
     

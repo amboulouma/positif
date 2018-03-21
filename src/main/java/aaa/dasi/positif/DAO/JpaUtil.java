@@ -1,11 +1,7 @@
 /**
- * POSIT'IF 2018
- * 
- * 
- * @author B3432
- * @author Abdelaziz El Omari Alaoui
- * @author Agathe Sauvestre
- * @author Amine Mohamed Boulouma
+ *
+ * @author DASI Team
+ *
  */
 
 package aaa.dasi.positif.DAO;
