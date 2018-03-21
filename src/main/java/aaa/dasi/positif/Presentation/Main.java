@@ -113,8 +113,8 @@ public class Main {
         System.out.println("[Client] Demonstation du service - "
                 + "static Client connexionClient(String mail) :");
         System.out.println();
-        System.out.println(ServiceClient.connexionClient("tom.martin@gmail.com"));
-        System.out.println(ServiceClient.connexionClient("tom@martan.gs"));
+        Client clientConnecte = ServiceClient.connexionClient("tom.martin@gmail.com");
+        clientConnecte = ServiceClient.connexionClient("tom@martan.gs");
         System.out.println();
         
         System.out.println();
