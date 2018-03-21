@@ -39,6 +39,7 @@ public class Employe implements Serializable {
     private boolean disponible;
 
     public Employe() {
+        this.disponible = true;
     }
 
     public Employe(Long idEmploye, String nom, String prenom, 
@@ -55,6 +56,7 @@ public class Employe implements Serializable {
     public Employe(String nom, String prenom) {
         this.nom = nom;
         this.prenom = prenom;
+        this.disponible = true;
     }
 
     public int getNombreAffectations() {
