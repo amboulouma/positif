@@ -21,6 +21,7 @@ import aaa.dasi.positif.ServicesMetiers.Services.ServiceAdministrateur;
 import aaa.dasi.positif.ServicesMetiers.Services.ServiceClient;
 import aaa.dasi.positif.ServicesMetiers.Services.ServiceEmploye;
 import aaa.dasi.positif.ServicesMetiers.Services.util.Saisie;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -231,7 +232,7 @@ public class ServicesPositif {
         System.out.println();
     }
 
-    static public void demarrerVoyance() {
+    static public void demarrerVoyance() throws IOException {
         System.out.println();
         String id = Saisie.lireChaine("Entrer l'identifiant du client avec qui"
                 + " vous voulez demarrer la voyance : ");
@@ -243,6 +244,7 @@ public class ServicesPositif {
         }
         int choixMedium = Saisie.lireInteger("Choisisser "
                 + "votre medium : ");
+        Client client = ServiceEmploye.retrouverClient(idClient);
         Voyance voyance = ServiceClient.demanderVoyance(
                 listMedium.get(choixMedium - 1), 
                 ServiceEmploye.retrouverClient(idClient));
@@ -283,22 +285,23 @@ public class ServicesPositif {
          do {
             switch (choix) {
                 case 1:
-                    String commentaire = Saisie.lireChaine("Entrez votre "
-                            + "commentaire : ");
-                    ServiceEmploye.cloturerVoyanceAvecCommentaire(voyance,
-                            commentaire);
-                    break;
-                case 2:
                     ServiceEmploye.genererTableauBord();
                     break;
-                case 3:
+                case 2:
                     ServiceEmploye.genererStatistiquesMedium();
                     break;
-                case 4:
+                case 3:
                     ServiceEmploye.genererStatistiquesEmploye();
                     break;   
-                case 5:
+                case 4:
                     ServiceEmploye.genererRepartitionEmploye();
+                    break;
+                case 5:
+                    int amour = Saisie.lireInteger("Entrez note amour : ");
+                    int sante = Saisie.lireInteger("Entrez note santé : ");
+                    int travail = Saisie.lireInteger("Entrez note travail : ");
+                    ServiceEmploye.genererPredictionsClient(
+                            client, amour, sante, travail);
                     break;
                 default:
                     System.out.println("Saisie incorrecte.");
