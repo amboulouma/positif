@@ -218,12 +218,13 @@ public class ServicesPositif {
                 List<Medium> listMedium = ServiceClient.
                         genererMediums();
                 for (int i = 0; i < listMedium.size(); i++) {
-                    System.out.println("1- " + listMedium.get(i));
+                    System.out.println(i + 1 + "- " + listMedium.get(i));
                 }
                 int choixMedium = Saisie.lireInteger("Choisisser "
                         + "votre medium : ");
                 Voyance voyance = ServiceClient.demanderVoyance(
-                        listMedium.get(choixMedium + 1), client);
+                        listMedium.get(choixMedium - 1), client);
+                
                 System.out.println();
             } else if (choix == 2) {
                 System.out.println();

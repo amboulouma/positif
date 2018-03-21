@@ -16,8 +16,9 @@ import java.text.ParseException;
 
 public class Positif {
     public static void main(String[] args) throws IOException, ParseException{
-        while (true) {
-            JpaUtil.init();
+        JpaUtil.init();
+        boolean flag = true;
+        while (flag) {
             int service = ServicesPositif.interfaceUtilisateur();
             switch (service) {
                 case 0:
@@ -119,12 +120,16 @@ public class Positif {
                                 + "génération de prédictions client.");
                         ServicesPositif.genererPredictionsClient();
                         break;
+                case -1:
+                        System.out.println("Vous avez quitté POSIT'IF.");
+                        flag = false;
+                        break;
                 default: System.out.println("Service introuvable.");
                         break;
             }
             Saisie.pause();
-            JpaUtil.destroy();
         }
+        JpaUtil.destroy();
     }
     
 }
