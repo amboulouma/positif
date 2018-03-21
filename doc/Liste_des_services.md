@@ -47,13 +47,13 @@ La liste des services métiers Employés de POSIT'IF
 ```static Client retrouverClient(Long idClient);```
 Permet à l'employé de retrouver un client de POSIT'IF
 
-```static void demarerVoyance(Voyance voyance, Employe employe);```
+```static void demarerVoyance(Voyance voyance);```
 Permet à l'employé de démarer une voyance avec un client de POSIT'IF
 
-```static void cloturerVoyanceAvecCommentaire(Voyance voyance, Commentaire commentaire, Employe employe);```
+```static void cloturerVoyanceAvecCommentaire(Voyance voyance, Commentaire commentaire);```
 Permet à l'employé de cloturer une voyance commentée avec un client de POSIT'IF
 
-```static void cloturerVoyanceSansCommentaire(Voyance voyance, Employe employe);```
+```static void cloturerVoyanceSansCommentaire(Voyance voyance);```
 Permet à l'employé de démarer une voyance non commentée avec un client de POSIT'IF
 
 ```static String genererTableauBord();```
