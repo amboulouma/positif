@@ -96,8 +96,8 @@ public class ServicesPositif {
         System.out.println("1- Astrologue");
         System.out.println("2- Tarologue");
         System.out.println("3- Voyant");
-        int choixMedium = Saisie.lireInteger("Entrez type de voyant que vous voulez "
-                + "entrer : ");  
+        int choixMedium = Saisie.lireInteger("Entrez type de voyant que vous "
+                + "voulez entrer : ");  
         Medium medium = new Medium();
         if (choixMedium == 1){
             String nom = Saisie.lireChaine("Entrer le nom du medium : ");
@@ -203,7 +203,8 @@ public class ServicesPositif {
         } else {
             System.out.println("Saisie incorrecte.");
             int choix = Saisie.lireInteger("Si vous n'etes pas encore inscrit "
-                    + "entrez 1 sinon 2 pour reessayer de vous connecter : ");
+                    + "entrez 1 pour vous inscrire sinon 2 pour reessayer de"
+                    + " vous connecter : ");
             switch (choix) {
                 case 1:
                     inscriptionClient();
