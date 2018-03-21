@@ -186,12 +186,19 @@ public class EmployeDAO extends JpaUtil{
             EntityManager em = JpaUtil.obtenirEntityManager();
             Query query = em.createQuery("select e from Employe e");
             repartitionEmployes = (List<Employe>) query.getResultList();
-            for(int i=0; i<repartitionEmployes.size(); i++){ 
+            int nombreVoyanceTotal = 0;
+            for(int i=0; i<repartitionEmployes.size(); i++){
+                nombreVoyanceTotal +=
+                        repartitionEmployes.get(i).getNombreDeVoyances();
+            }
+            for(int i=0; i<repartitionEmployes.size(); i++){
                 result += "\n";
-                result += repartitionEmployes.get(i).getNom() + " " 
+                int pourcentage = (nombreVoyanceTotal == 0) ? 0 :
+                        repartitionEmployes.get(i).getNombreDeVoyances() * 100
+                        / nombreVoyanceTotal;
+                result += repartitionEmployes.get(i).getNom() + " "
                         + repartitionEmployes.get(i).getPrenom() + ": "
-                        + repartitionEmployes.get(i).getNombreDeVoyances() * 
-                        100 / repartitionEmployes.size() + "%" ;
+                        + pourcentage + "%";
             }
             System.out.println("[EmployeDAO] Generation de la repartition "
                     + "des employes réussie.");
@@ -215,5 +222,23 @@ public class EmployeDAO extends JpaUtil{
         predictions = astro.getPredictions(couleur, animal, amour, sante, 
                 travail);
         return predictions;
+    }
+
+    public static List<Voyance> getListVoyances(String mail) {
+        List<Voyance> voyances = new ArrayList<Voyance>() ;
+        try{
+            EntityManager em = JpaUtil.obtenirEntityManager();
+            Query query = em.createQuery("select v from Voyance v "
+                    + "where v.client.mail = :mail");
+            query.setParameter("mail", mail);
+            System.out.println("[EmployeDAO] Generation de la liste "
+                    + "des voyances réussie.");
+            voyances = (List<Voyance>) query.getResultList();
+        }catch(Exception e){
+            System.err.println("[EmployeDAO] Generation de la liste "
+                    + "des voyances non réussie.");
+        }finally{
+            return voyances;
+        }
     }
 }

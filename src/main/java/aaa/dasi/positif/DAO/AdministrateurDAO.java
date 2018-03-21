@@ -80,7 +80,8 @@ public class AdministrateurDAO extends JpaUtil{
             EntityManager em = JpaUtil.obtenirEntityManager();
             Query query = em.createQuery("select distinct e from Employe e "
                     + "where e.nombreDeVoyances = (select "
-                    + "MIN(e.nombreDeVoyances) from Employe e) and e.disponible= :disponible");
+                    + "MIN(e.nombreDeVoyances) from Employe e) and "
+                    + "e.disponible= :disponible");
             query.setParameter("disponible", true);
             query.setMaxResults(1).getResultList();
             employe = (Employe)query.getSingleResult();
@@ -110,11 +111,11 @@ public class AdministrateurDAO extends JpaUtil{
             em.merge(voyance);
             EmployeDAO.mergeNombreAffectations(employe, medium, 
                     nombreAffectationsEmploye, nombreAffectationsMedium);
-            System.out.println("[AdministrateurDAO] modification de la voyance "
-                    + "réussie.");
+            System.out.println("[AdministrateurDAO] modification de "
+                    + "la voyance réussie.");
         }catch(Exception ex) {
-            System.err.println("[AdministrateurDAO] modification de la voyance "
-                    + "non réussie.");
+            System.err.println("[AdministrateurDAO] modification de "
+                    + "la voyance non réussie.");
         }finally{
             return notificationEmploye;
         }

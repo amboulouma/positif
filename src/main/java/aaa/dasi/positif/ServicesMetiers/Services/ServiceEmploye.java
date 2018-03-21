@@ -12,6 +12,7 @@
 package aaa.dasi.positif.ServicesMetiers.Services;
 
 import aaa.dasi.positif.DAO.AdministrateurDAO;
+import aaa.dasi.positif.DAO.ClientDAO;
 import aaa.dasi.positif.DAO.EmployeDAO;
 import aaa.dasi.positif.DAO.JpaUtil;
 import aaa.dasi.positif.ServicesMetiers.Modeles.Client;
@@ -127,6 +128,16 @@ public class ServiceEmploye {
         List<String> predictions = new ArrayList<String>() ;
         predictions = EmployeDAO.getPredictionsClient(client, amour, sante, travail);
         return predictions;
+    }
+    
+    public static List<Voyance> genererHistoriqueVoyances(String mail){
+        System.out.println();
+        System.out.println("[ServiceEmploye] Service de génération de "
+                + "l'historique des voyances du client lancé.");
+        System.out.println();
+        List<Voyance> voyances = new ArrayList<Voyance>() ;
+        voyances = EmployeDAO.getListVoyances(mail);
+        return voyances;
     }
 
 }
