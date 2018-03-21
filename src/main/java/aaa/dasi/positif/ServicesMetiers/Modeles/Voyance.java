@@ -169,7 +169,7 @@ public class Voyance implements Serializable {
 
     @Override
     public String toString() {
-        return "Voyance{" + "idVoyance=" + idVoyance + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + ", commentaire=" + commentaire + ", employe=" + employe + ", medium=" + medium + ", client=" + client + '}';
+        return "Voyance{" + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + ", commentaire=" + commentaire + ", employe=" + employe + ", medium=" + medium + ", client=" + client + "}\n";
     }
     
 }

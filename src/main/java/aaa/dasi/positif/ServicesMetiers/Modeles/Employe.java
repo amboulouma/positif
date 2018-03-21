@@ -36,6 +36,7 @@ public class Employe implements Serializable {
     @ManyToMany
     private List<Medium> medium;
     private int nombreAffectations;
+    private boolean disponible;
 
     public Employe() {
     }
@@ -48,6 +49,7 @@ public class Employe implements Serializable {
         this.voyance = voyance;
         this.medium = medium;
         this.nombreAffectations = 0;
+        this.disponible = true;
     }
 
     public Employe(String nom, String prenom) {
@@ -149,16 +151,24 @@ public class Employe implements Serializable {
         return true;
     }
 
+    public boolean isDisponible() {
+        return disponible;
+    }
+
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
+    }
+
     
     public String toStringMax() {
         return "Employe{" + "idEmploye=" + idEmploye + ", nom=" + nom 
                 + ", prenom=" + prenom + ", voyance=" + voyance + ", medium=" 
-                + medium + ", nombre d'affectations =" + nombreAffectations + '}';
+                + medium + ", nombre d'affectations =" + nombreAffectations + "}\n";
     }
     
     @Override
     public String toString() {
         return "Employe{" + "nom=" + nom + ", prenom=" + prenom 
-                + ", nombre d'affectations =" + nombreAffectations + '}';
+                + ", nombre d'affectations =" + nombreAffectations + "}\n";
     }
 }
