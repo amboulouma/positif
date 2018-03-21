@@ -80,6 +80,14 @@ public class ServiceAdministrateur {
     
     
     public static void initPositif(){
+        System.out.println();
+        System.out.println("[ServiceAdministrateur] Service initialisation de "
+                + "l'application POSIT'IF lancé.");
+        System.out.println();
+        System.out.println("Initialisation de POSIT'IF...");
+        System.out.println();
+        System.out.println("---------------------------------------------------"
+                + "---------------------");
         Medium mediumGwenael = new Voyant("Boule de Cristal", "Gwenaël", 
                 "Spécialiste des grandes conversations au-delà de TOUTES "
                 + "les frontières.");
@@ -208,5 +216,10 @@ public class ServiceAdministrateur {
         for(i = 0; i < NOMBRE_CLIENTS; i++) {
             ajoutClient(clients[i]);
         }
+        
+        System.out.println("---------------------------------------------------"
+                + "---------------------");
+        System.out.println("Fin de l'initialisation de l'application POSIT'IF");
+        System.out.println();
     }
 }

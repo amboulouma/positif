@@ -81,6 +81,7 @@ public class AdministrateurDAO extends JpaUtil{
             Query query = em.createQuery("select distinct e from Employe e "
                     + "where e.nombreAffectations = (select "
                     + "MIN(e.nombreAffectations) from Employe e)");
+            query.setMaxResults(1).getResultList();
             employe = (Employe)query.getSingleResult();
             System.out.println("[AdministrateurDAO] Employé avec affectations "
                     + "minimales trouvé.");
