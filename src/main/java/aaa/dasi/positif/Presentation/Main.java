@@ -22,12 +22,15 @@ import aaa.dasi.positif.ServicesMetiers.Modeles.Voyant;
 import aaa.dasi.positif.ServicesMetiers.Services.ServiceAdministrateur;
 import aaa.dasi.positif.ServicesMetiers.Services.ServiceClient;
 import aaa.dasi.positif.ServicesMetiers.Services.ServiceEmploye;
+import aaa.dasi.positif.ServicesMetiers.Services.util.Saisie;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
 public class Main {
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException, ParseException{
         
         JpaUtil.init();
         
@@ -41,7 +44,10 @@ public class Main {
                 "Signe Astrologique",
                 "Couleur porte bonheur",
                 "Animal Totem");
-        Date dateNaissance = new Date(1997,12,01);
+        
+        String stringDateNaissance = "01/12/1980";
+        Date dateNaissance = new 
+            SimpleDateFormat("dd/MM/yyyy").parse(stringDateNaissance);
         Client client = new Client("Tom", 
                 "Martin",
                 "M",
@@ -105,9 +111,9 @@ public class Main {
         
         System.out.println();
         System.out.println("[Client] Demonstation du service - "
-                + "static boolean connexionClient(String mail) :");
+                + "static Client connexionClient(String mail) :");
         System.out.println();
-        System.out.println(ServiceClient.connexionClient("tom@martin.gs"));
+        System.out.println(ServiceClient.connexionClient("tom.martin@gmail.com"));
         System.out.println(ServiceClient.connexionClient("tom@martan.gs"));
         System.out.println();
         
@@ -134,10 +140,10 @@ public class Main {
         System.out.println();
         System.out.println("[Client] Demonstation du service - "
                 + "static List<Voyance> "
-                + "genererHistoriqueVoyances(Client client) :");
+                + "genererHistoriqueVoyances(Mail mail) :");
         System.out.println();
-        Long idClient = client.getIdClient();
-        System.out.println(ServiceClient.genererHistoriqueVoyances(idClient));
+        String mail  = client.getMail();
+        System.out.println(ServiceClient.genererHistoriqueVoyances(mail));
         System.out.println();
         
         System.out.println();
@@ -153,6 +159,8 @@ public class Main {
         System.out.println("[Employe] Demonstation du service - "
                 + "static Client retrouverClient(Long idClient) :");
         System.out.println();
+        Long idClient;
+        idClient = client.getIdClient();
         System.out.println(ServiceEmploye.retrouverClient(idClient));
         System.out.println();
         

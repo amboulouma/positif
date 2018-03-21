@@ -74,22 +74,21 @@ public class ClientDAO extends JpaUtil{
 
     
     
-    public static boolean trouverMail(String paramMail){
-        boolean resultat = false;
+    public static Client trouverClient(String paramMail){
+        Client client = null;
         try{
             EntityManager em = JpaUtil.obtenirEntityManager();
             Query query = em.createQuery("select c from Client c "
                     + "where c.mail= :mail");
             query.setParameter("mail", paramMail);
-            Client client = (Client)query.getSingleResult();
+            client = (Client)query.getSingleResult();
             System.out.println("[ClientDAO] le client se trouve dans "
                     + "la base de données.");
-            resultat = true; 
         }catch(NoResultException nRE){
             System.err.println("[ClientDAO] le client ne se trouve pas dans "
                     + "la base de données.");
         }finally{
-            return resultat;
+            return client;
         }     
     }
     
@@ -110,13 +109,13 @@ public class ClientDAO extends JpaUtil{
         }
     }  
    
-    public static List<Voyance> getListVoyances(Long idClient){
+    public static List<Voyance> getListVoyances(String mail){
         List<Voyance> voyances = new ArrayList<Voyance>() ;
         try{
             EntityManager em = JpaUtil.obtenirEntityManager();
             Query query = em.createQuery("select v from Voyance v "
-                    + "where v.client.idClient = :paramID");
-            query.setParameter("paramID", idClient);
+                    + "where v.client.mail = :mail");
+            query.setParameter("mail", mail);
             System.out.println("[ClientDAO] Generation de la liste "
                     + "des voyances réussie.");
             voyances = (List<Voyance>) query.getResultList();

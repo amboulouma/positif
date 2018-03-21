@@ -37,12 +37,12 @@ public class ServiceClient{
     }
     
     
-    public static boolean connexionClient(String mail){
+    public static Client connexionClient(String mail){
         System.out.println();
         System.out.println("[ServiceClient] Service connexion du client "
                 + "lancé.");
         System.out.println();
-        return ClientDAO.trouverMail(mail);
+        return ClientDAO.trouverClient(mail);
     }
     
     
@@ -72,13 +72,13 @@ public class ServiceClient{
     }
     
     
-    public static List<Voyance> genererHistoriqueVoyances(Long idClient){
+    public static List<Voyance> genererHistoriqueVoyances(String mail){
         System.out.println();
         System.out.println("[ServiceClient] Service de génération de "
                 + "l'historique des voyances du client lancé.");
         System.out.println();
         List<Voyance> voyances = new ArrayList<Voyance>() ;
-        voyances = ClientDAO.getListVoyances(idClient);
+        voyances = ClientDAO.getListVoyances(mail);
         return voyances;
     }
 }

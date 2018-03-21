@@ -9,11 +9,15 @@
  */
 package aaa.dasi.positif.Presentation;
 
+import aaa.dasi.positif.DAO.JpaUtil;
+import aaa.dasi.positif.ServicesMetiers.Services.util.Saisie;
 import java.io.IOException;
+import java.text.ParseException;
 
 public class Positif {
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException, ParseException{
         while (true) {
+            JpaUtil.init();
             int service = ServicesPositif.interfaceUtilisateur();
             switch (service) {
                 case 0:
@@ -118,7 +122,9 @@ public class Positif {
                 default: System.out.println("Service introuvable.");
                         break;
             }
-        }   
+            Saisie.pause();
+            JpaUtil.destroy();
+        }
     }
     
 }

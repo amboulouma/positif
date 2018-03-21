@@ -43,6 +43,22 @@ public class Client implements Serializable {
     public Client() {
     }
 
+    public Client(String nom, String prenom, String mail) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.mail = mail;
+    }
+
+    public Client(String nom, String prenom, String civilite, Date dateNaissance, AdressePostale adressePostale, String telephone, String mail) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.civilite = civilite;
+        this.dateNaissance = dateNaissance;
+        this.adressePostale = adressePostale;
+        this.telephone = telephone;
+        this.mail = mail;
+    }
+
     
     public Client(String nom, String prenom, String civilite, Date dateNaissance, AdressePostale adressePostale, String telephone, String mail, ProfilAstrologique profilAstrologique) {
         this.nom = nom;
@@ -53,6 +69,13 @@ public class Client implements Serializable {
         this.telephone = telephone;
         this.mail = mail;
         this.profilAstrologique = profilAstrologique;
+    }
+
+    public Client(String nom, String prenom, String mail, Date dateNaissance) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.mail = mail;
+        this.dateNaissance = dateNaissance;
     }
         
     public Long getIdClient() {
